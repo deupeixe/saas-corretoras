@@ -1,0 +1,99 @@
+.desktop{
+  width: 100%;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+  .nav-menu{
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    // border: 1px solid red;
+    color: #111111;
+    a{
+      color: #111111;
+      text-decoration: none;
+    }
+
+    .toggle{
+      // background-color: blue;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 50px;
+      height: 50px;
+      fa-icon{
+        font-size: 25px;
+        font-weight: 200;
+      }
+
+    }
+    .menu-items{
+      display: flex;
+      ul{
+        list-style-type: none !important;
+      }
+      li{
+        margin: 10px;
+        list-style-type: none !important;
+
+      }
+
+    }
+
+    .logo{
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .infos{
+      // width: 400px;
+      padding: 30px;
+      display: flex;
+      // border: 1px solid red;
+
+      .item{
+        padding-left: 50px;
+        position: relative;
+        margin-right: 30px;
+
+        fa-icon {
+          position: absolute;
+          left: 0;
+          top: px;
+          height: 30px;
+          width: 30px;
+          text-align: center;
+          line-height: 30px;
+          border-radius: 4px;
+          background: #111;
+          color: #fff;
+          font-size: 14px;
+        }
+        span{
+          font-weight: 600;
+          font-size: 14px;
+          padding-bottom: 4px;
+          color: #777777;
+
+        }
+        a{
+
+          display: block;
+          font-size: 20px;
+          font-weight: 200;
+          margin-top: 5px;
+        }
+
+      }
+    }
+
+  }
+}
