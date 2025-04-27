@@ -1,0 +1,37 @@
+:host{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .details-box{
+    margin-top: 30px;
+    width: 70%;
+    min-height: 500px;
+    // border: 1px solid red;
+    display: flex;
+    justify-content: space-between;
+    background-color: #ffff;
+
+    .details-body{
+      flex: 1;
+      // border: 1px solid green;
+      padding: 30px;
+    }
+    .details-side{
+      width: 300px;
+      padding: 10px;
+      // border: 1px solid blue;
+
+      .price-box{
+        width: 100%;
+        height: 200px;
+        border: 1px solid #4C6275(206, 206, 206);
+        border-radius: 5px;
+        box-shadow: 0 0 3px rgba(30,41,59,.15)!important;
+      }
+    }
+  }
+
+}
