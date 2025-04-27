@@ -1,0 +1,21 @@
+:host{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+
+  .grid-box{
+    padding: 30px;
+    width: 80%;
+    min-height: 300px;
+    // border: 1px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px
+    ;
+
+  }
+}
