@@ -21,7 +21,7 @@ section{
 
     .text-box{
       position: absolute;
-      bottom: 30%;
+      bottom: 40%;
       z-index: 10;
       width: 100%;
       span, h2{
@@ -33,7 +33,7 @@ section{
       }
 
       h2{
-        font-size: 4.5rem;
+        font-size: 4rem;
         padding: 0px;
         margin: 0px;
         margin-top: 20px;
@@ -84,5 +84,58 @@ section{
     }
 
   }
+
+}
+
+
+@media (max-width: 540px){
+
+  section{
+    .box{
+      // padding-top: 30px;
+      width: 90%;
+      .text-box{
+        position: absolute;
+        bottom: 40%;
+        span{
+          font-size: 1.5rem;
+        }
+
+        h2{
+          font-size: 3.5rem;
+        }
+
+      }
+
+    }
+
+  }
+
+
+}
+
+@media (max-width: 414px){
+
+  section{
+    .box{
+      // padding-top: 30px;
+      width: 90%;
+      .text-box{
+        position: absolute;
+        bottom: 50%;
+        span{
+          font-size: 1.2rem;
+        }
+
+        h2{
+          font-size: 2.5rem;
+        }
+
+      }
+
+    }
+
+  }
+
 
 }

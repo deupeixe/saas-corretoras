@@ -111,9 +111,16 @@
 }
 
 @media (max-width: 820px){
-  .infos{
+  .menu-items, .infos{
     display: none !important;
   }
+
+  .logo{
+    justify-content: end !important;
+    margin-right: 20px;
+
+  }
+
 
 }
 
