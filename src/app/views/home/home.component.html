@@ -1,2 +1,2 @@
 <app-breadcrumb />
-<app-grid />
+<app-grid [loading]="propertyStore.select.loading()" [items]="propertyStore.select.state" />

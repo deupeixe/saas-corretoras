@@ -1,4 +1,4 @@
-<div class="box-image" [ngStyle]="{'background-image': 'url(images/01.jpg)', 'background-position': '50%'}">
+<div class="box-image" [ngStyle]="{'background-image': 'url('+item?.thumb+')'}">
 
   <div class="box-icons">
     <div class="icons">
@@ -11,20 +11,27 @@
 <div class="box-info">
 
   <h4 class="title">
-    <a href="http://">Minimal Duplex Apartment</a>
+    <a href="http://">{{item?.titulo}}</a>
   </h4>
 
   <div class="desc">
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipi sicing elit, sed do eiusmod tempor.
-    </p>
+    <a href="">
+      @if(item?.end_bairro){
+        <span>{{item?.end_bairro}} |</span>
+      }
+       <span> {{item?.end_cidade}} {{item?.end_uf}}</span>
+    </a>
+
+
+
   </div>
 
   <div class="price">
-    <a class="money" href="http://">R$ 200.000</a>
-    <a class="view" href="">Visualizar</a>
+    <a class="money" href="http://">{{item.preco | currency: 'BRL':'symbol-narrow':'1.0-0' }}</a>
+    <a class="view" href="">{{item?.categoria | titlecase}}</a>
   </div>
 
+  <i class="mark">Telma Monteiro - CRECI 6489f</i>
 
 
 </div>

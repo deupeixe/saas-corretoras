@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
+import { PropertyStoreService } from './store/property-store.service';
 
 @Component({
   selector: 'app-root',
@@ -13,4 +14,11 @@ import { HeaderComponent } from './components/header/header.component';
 })
 export class AppComponent {
   title = 'telmamonteiroSite';
+
+  propertyStore = inject(PropertyStoreService);
+
+  constructor(){
+    this.propertyStore.actionLoadAll();
+
+  }
 }

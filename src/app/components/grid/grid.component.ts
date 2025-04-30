@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, Signal, signal, SimpleChanges } from '@angular/core';
 import { CardItemComponent } from '../card-item/card-item.component';
 
 @Component({
@@ -9,6 +9,11 @@ import { CardItemComponent } from '../card-item/card-item.component';
   templateUrl: './grid.component.html',
   styleUrl: './grid.component.scss'
 })
-export class GridComponent {
+export class GridComponent{
+
+
+  @Input() items: Signal<any[]> = signal([])
+  @Input() loading = false;
+
 
 }
