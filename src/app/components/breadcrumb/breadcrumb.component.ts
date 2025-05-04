@@ -11,6 +11,6 @@ import { Component, Input } from '@angular/core';
 })
 export class BreadcrumbComponent {
 
-  @Input({required: true}) item: {title: string, subtitle: string} = {title: 'Meus ímoveis', subtitle: 'Casas, apartamentos, terrenos e empreendimentos'}
+  @Input({required: true}) item: {title: string, subtitle: string} = {title: 'Meus ímoveis', subtitle: 'Casas, apartamentos, empreendimentos e muito mais'}
 
 }

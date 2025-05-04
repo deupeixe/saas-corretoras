@@ -19,6 +19,17 @@
     .search-box{
       width: 100%;
       padding: 10px;
+      .label-search{
+        font-weight: 400;
+      }
+      .label-results{
+        font-weight: 200;
+        color: #979797;
+        display: flex;
+        mat-chip{
+          margin-left: 10px;
+        }
+      }
 
       form{
         display: flex;
@@ -29,6 +40,18 @@
       }
     }
   }
+
+  .empty{
+    width: auto;
+    // border: 1px solid red;
+    padding: 10px;
+    p{
+      font-size: 20px;
+      color: #979797;
+      text-align: center;
+    }
+  }
+
 }
 
 @media (max-width: 820px){

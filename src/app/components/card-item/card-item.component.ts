@@ -17,7 +17,7 @@ import { faExpand, faBath, faWarehouse, faBed, faCar } from '@fortawesome/free-s
   templateUrl: './card-item.component.html',
   styleUrl: './card-item.component.scss'
 })
-export class CardItemComponent implements OnInit {
+export class CardItemComponent{
 
   @Input({required: true}) item: any;
 
@@ -26,9 +26,5 @@ export class CardItemComponent implements OnInit {
   faWarehouse = faWarehouse;
   faBed = faBed;
   faCar = faCar;
-  ngOnInit(): void {
-
-    console.log(this.item)
-  }
 
 }

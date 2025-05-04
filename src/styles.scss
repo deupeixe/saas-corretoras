@@ -23,12 +23,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 :root {
   @include mat.button-overrides((
-    text-label-text-color: rgb(187, 255, 0),
+    text-label-text-color: rgb(168, 115, 0),
     text-state-layer-color: rgb(180, 180, 180),
     text-ripple-color: rgb(209, 209, 209),
     text-label-text-weight: 900,
     text-label-text-size: 22px
   ));
+
   @include mat.button-toggle-overrides((
     shape: 5px,
     height: 57px
@@ -37,6 +38,17 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     container-height: 56px
   ))
 }
+app-property-details{
+  @include mat.button-overrides((
+    text-label-text-color: rgb(187, 255, 0),
+    text-state-layer-color: rgb(180, 180, 180),
+    text-ripple-color: rgb(209, 209, 209),
+    text-label-text-weight: 900,
+    text-label-text-size: 22px
+  ));
+}
+
+
 
 app-grid{
   .mat-mdc-text-field-wrapper{

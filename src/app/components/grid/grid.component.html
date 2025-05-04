@@ -5,46 +5,50 @@
 
   }@else {
     <div class="search-box">
-      <p style="text-align: start;">Pesquisar</p>
-      <form >
-        <mat-form-field appearance="outline">
+      <p class="label-search">Filtrar por </p>
+      <form [formGroup]="form" >
+        <!-- <mat-form-field appearance="outline">
           <mat-label>Região</mat-label>
           <input type="text"
                  placeholder="Selecione"
-                 aria-label="Number"
+                 aria-label="Text"
                  matInput
-                 [formControl]="myControl"
+                 formControlName="region"
                  [matAutocomplete]="auto">
           <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
             @for (option of filteredOptions | async; track option) {
               <mat-option [value]="option">{{option}}</mat-option>
             }
           </mat-autocomplete>
-        </mat-form-field>
-        <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
-          <mat-button-toggle value="comprar">Comprar</mat-button-toggle>
-          <mat-button-toggle value="alugar">Alugar</mat-button-toggle>
-          <mat-button-toggle value="todos">Ambos</mat-button-toggle>
+        </mat-form-field> -->
+        <mat-button-toggle-group formControlName="category" name="fontStyle" aria-label="Font Style" >
+          @for (category of options.categories; track $index) {
+            <mat-button-toggle [value]="category">{{category | titlecase}}</mat-button-toggle>
+          }
         </mat-button-toggle-group>
-        <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
-          <mat-button-toggle value="casas">Casas</mat-button-toggle>
-          <mat-button-toggle value="apartamentos">Apartamentos</mat-button-toggle>
-          <mat-button-toggle value="comercial">Comercial</mat-button-toggle>
-          <mat-button-toggle value="outros">Sitios | Fazendas | Terrenos</mat-button-toggle>
-          <mat-button-toggle value="todos">Ambos</mat-button-toggle>
+
+        <mat-button-toggle-group formControlName="type" name="fontStyle" aria-label="Font Style">
+          @for (type of options.types; track $index) {
+            <mat-button-toggle [value]="type.value">{{type.title | titlecase}}</mat-button-toggle>
+          }
         </mat-button-toggle-group>
+
+
       </form>
 
-      <p style="text-align: start;">Resultado 30 anúcions</p>
+
+      <p class="label-results">Resultado {{filterItems().length}} anúncios</p>
 
     </div>
 
-    <!-- <div class="search-box">
-
-    </div> -->
-
-    @for (item of items(); track $index) {
+    @for (item of filterItems(); track $index) {
       <app-card-item [item]="item" />
+    }@empty {
+      <div class="empty">
+        <p>*Sem resultados para sua pesquisa</p>
+        <button (click)="clean()" mat-button>Voltar a todos os anúncios</button>
+      </div>
+
     }
 
   }
