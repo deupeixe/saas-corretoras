@@ -1,5 +1,5 @@
 import { NgStyle } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-breadcrumb',
@@ -10,5 +10,7 @@ import { Component } from '@angular/core';
   styleUrl: './breadcrumb.component.scss'
 })
 export class BreadcrumbComponent {
+
+  @Input({required: true}) item: {title: string, subtitle: string} = {title: 'Meus ímoveis', subtitle: 'Casas, apartamentos, terrenos e empreendimentos'}
 
 }

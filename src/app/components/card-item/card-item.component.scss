@@ -31,15 +31,29 @@
 
     .icons{
       width: 90%;
-      // border: 1px solid green;
+      box-shadow: 0 0 13px rgba(30, 41, 59, 0.123)!important;
+
       background-color: #ffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      span{
+        color: #4c6275;
+        // border: 1px solid red;
+        padding: 5px;
+        fa-icon{
+          margin-right: 5px;
+        }
+
+      }
     }
   }
   .box-info{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 220px;
+    height: 230px;
     // border: 1px solid blue;
     padding: 20px;
     text-align: center;

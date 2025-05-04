@@ -1,8 +1,19 @@
-<div [routerLink]="['/imoveis/'+item.url]" class="box-image" [ngStyle]="{'background-image': 'url('+item?.thumb+')'}">
+<div [routerLink]="['/imovel-no-maranhao/'+item.url]" class="box-image" [ngStyle]="{'background-image': 'url('+item?.thumb+')'}">
 
   <div class="box-icons">
     <div class="icons">
-
+      @if(item?.area_util){
+        <span><fa-icon [icon]="faExpand"></fa-icon>{{item?.area_util | number:'1.0-0'}} m²</span>
+      }
+      @if(item?.qtd_ban){
+        <span><fa-icon [icon]="faBath"></fa-icon>{{item?.qtd_ban | number:'1.0-0'}}</span>
+      }
+      @if (item?.qtd_dorm) {
+        <span><fa-icon [icon]="faBed"></fa-icon>{{item?.qtd_dorm | number:'1.0-0'}}</span>
+      }
+      @if(item?.qtd_vaga){
+        <span><fa-icon [icon]="faCar"></fa-icon>{{item?.qtd_vaga | number:'1.0-0'}}</span>
+      }
     </div>
 
   </div>
@@ -11,11 +22,11 @@
 <div class="box-info">
 
   <h4 class="title">
-    <a [routerLink]="['/imoveis/'+item.url]">{{item?.titulo}}</a>
+    <a [routerLink]="['/imovel-no-maranhao/'+item.url]">{{item?.titulo}}</a>
   </h4>
 
   <div class="desc">
-    <a [routerLink]="['/imoveis/'+item.url]">
+    <a [routerLink]="['/imovel-no-maranhao/'+item.url]">
       @if(item?.end_bairro){
         <span>{{item?.end_bairro}} |</span>
       }
@@ -27,8 +38,8 @@
   </div>
 
   <div class="price">
-    <a class="money" [routerLink]="['/imoveis/'+item.url]">{{item.preco | currency: 'BRL':'symbol-narrow':'1.0-0' }}</a>
-    <a class="view" [routerLink]="['/imoveis/'+item.url]">{{item?.categoria | titlecase}}</a>
+    <a class="money" [routerLink]="['/imovel-no-maranhao/'+item.url]">{{item.preco | currency: 'BRL':'symbol-narrow':'1.0-0' }}</a>
+    <a class="view" [routerLink]="['/imovel-no-maranhao/'+item.url]">{{item?.categoria | titlecase}}</a>
   </div>
 
   <i class="mark">Telma Monteiro - CRECI 6489f</i>

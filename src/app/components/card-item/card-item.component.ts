@@ -1,6 +1,8 @@
-import { CurrencyPipe, JsonPipe, NgStyle, TitleCasePipe } from '@angular/common';
+import { CurrencyPipe, DecimalPipe, formatNumber, JsonPipe, NgStyle, TitleCasePipe } from '@angular/common';
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faExpand, faBath, faWarehouse, faBed, faCar } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-card-item',
@@ -8,7 +10,9 @@ import { RouterLink } from '@angular/router';
     NgStyle,
     TitleCasePipe,
     CurrencyPipe,
-    RouterLink
+    RouterLink,
+    FontAwesomeModule,
+    DecimalPipe
   ],
   templateUrl: './card-item.component.html',
   styleUrl: './card-item.component.scss'
@@ -17,7 +21,13 @@ export class CardItemComponent implements OnInit {
 
   @Input({required: true}) item: any;
 
+  faExpand = faExpand;
+  faBath = faBath;
+  faWarehouse = faWarehouse;
+  faBed = faBed;
+  faCar = faCar;
   ngOnInit(): void {
+
     console.log(this.item)
   }
 
