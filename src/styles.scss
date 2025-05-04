@@ -29,6 +29,23 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     text-label-text-weight: 900,
     text-label-text-size: 22px
   ));
+  @include mat.button-toggle-overrides((
+    shape: 5px,
+    height: 57px
+  ));
+  @include mat.form-field-overrides((
+    container-height: 56px
+  ))
+}
+
+app-grid{
+  .mat-mdc-text-field-wrapper{
+    padding-top: 3px !important;
+    // border: 1px solid red;
+  }
+  .mat-mdc-form-field-subscript-wrapper{
+    display: none;
+  }
 }
 
 button{

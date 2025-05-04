@@ -10,22 +10,51 @@
     padding: 30px;
     width: 80%;
     min-height: 300px;
-    // border: 1px solid red;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 20px
-    ;
+    gap: 20px;
 
+    .search-box{
+      width: 100%;
+      padding: 10px;
+
+      form{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: start;
+        align-items: baseline;
+        gap: 10px;
+      }
+    }
   }
 }
 
 @media (max-width: 820px){
   :host{
     .grid-box{
-      padding: 10px;
+      margin-top: 10px;
       width: 100%;
+
+      .search-box{
+        width: 100%;
+        padding: 10px;
+
+        form{
+          gap: 5px;
+          mat-button-toggle-group{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            mat-button-toggle{
+              border: 0px;
+              border-bottom: 1px solid rgb(226, 226, 226);
+              flex: 1;
+            }
+          }
+        }
+      }
     }
   }
 

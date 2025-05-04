@@ -4,6 +4,45 @@
     <p>....is loading</p>
 
   }@else {
+    <div class="search-box">
+      <p style="text-align: start;">Pesquisar</p>
+      <form >
+        <mat-form-field appearance="outline">
+          <mat-label>Região</mat-label>
+          <input type="text"
+                 placeholder="Selecione"
+                 aria-label="Number"
+                 matInput
+                 [formControl]="myControl"
+                 [matAutocomplete]="auto">
+          <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+            @for (option of filteredOptions | async; track option) {
+              <mat-option [value]="option">{{option}}</mat-option>
+            }
+          </mat-autocomplete>
+        </mat-form-field>
+        <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+          <mat-button-toggle value="comprar">Comprar</mat-button-toggle>
+          <mat-button-toggle value="alugar">Alugar</mat-button-toggle>
+          <mat-button-toggle value="todos">Ambos</mat-button-toggle>
+        </mat-button-toggle-group>
+        <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+          <mat-button-toggle value="casas">Casas</mat-button-toggle>
+          <mat-button-toggle value="apartamentos">Apartamentos</mat-button-toggle>
+          <mat-button-toggle value="comercial">Comercial</mat-button-toggle>
+          <mat-button-toggle value="outros">Sitios | Fazendas | Terrenos</mat-button-toggle>
+          <mat-button-toggle value="todos">Ambos</mat-button-toggle>
+        </mat-button-toggle-group>
+      </form>
+
+      <p style="text-align: start;">Resultado 30 anúcions</p>
+
+    </div>
+
+    <!-- <div class="search-box">
+
+    </div> -->
+
     @for (item of items(); track $index) {
       <app-card-item [item]="item" />
     }
