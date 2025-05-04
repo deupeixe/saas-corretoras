@@ -1,4 +1,4 @@
-<div class="box-image" [ngStyle]="{'background-image': 'url('+item?.thumb+')'}">
+<div [routerLink]="['/imoveis/'+item.url]" class="box-image" [ngStyle]="{'background-image': 'url('+item?.thumb+')'}">
 
   <div class="box-icons">
     <div class="icons">
@@ -11,11 +11,11 @@
 <div class="box-info">
 
   <h4 class="title">
-    <a href="http://">{{item?.titulo}}</a>
+    <a [routerLink]="['/imoveis/'+item.url]">{{item?.titulo}}</a>
   </h4>
 
   <div class="desc">
-    <a href="">
+    <a [routerLink]="['/imoveis/'+item.url]">
       @if(item?.end_bairro){
         <span>{{item?.end_bairro}} |</span>
       }
@@ -27,8 +27,8 @@
   </div>
 
   <div class="price">
-    <a class="money" href="http://">{{item.preco | currency: 'BRL':'symbol-narrow':'1.0-0' }}</a>
-    <a class="view" href="">{{item?.categoria | titlecase}}</a>
+    <a class="money" [routerLink]="['/imoveis/'+item.url]">{{item.preco | currency: 'BRL':'symbol-narrow':'1.0-0' }}</a>
+    <a class="view" [routerLink]="['/imoveis/'+item.url]">{{item?.categoria | titlecase}}</a>
   </div>
 
   <i class="mark">Telma Monteiro - CRECI 6489f</i>

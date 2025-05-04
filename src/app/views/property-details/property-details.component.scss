@@ -1,47 +1,224 @@
+
 :host{
   width: 100%;
+  margin: 0px;
+  padding: 0px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
+
+
   .details-box{
     margin-top: 30px;
     width: 70%;
     min-height: 500px;
-    // border: 1px solid red;
     display: flex;
+    justify-content: space-between;
+    gap: 10px;
     justify-content: space-between;
     background-color: #ffff;
 
     .details-body{
       flex: 1;
       // border: 1px solid green;
+      margin: 0px;
       padding: 30px;
+      .title{
+        font-weight: 700;
+      }
+      .price-box-mobile, .complementations-box-mobile{
+        display: none;
+      }
+      .description{
+        font-size: 14px;
+        font-weight: 300 !important;
+        color: #252525;
+
+      }
+
     }
     .details-side{
-      width: 300px;
+      width: 350px;
       padding: 10px;
-      // border: 1px solid blue;
-
-      .price-box{
-        // width: 100%;
-        height: 200px;
-        border: 1px solid #4C6275(206, 206, 206);
+      .price-box-desktop{
         border-radius: 5px;
-        box-shadow: 0 0 3px rgba(30,41,59,.15)!important;
+        box-shadow: 0 0 33px rgba(30, 41, 59, 0.274)!important;
         padding: 20px;
+        background-color: #553232;
+        p{
+          color: #e2e2e2;
+        }
 
         .value{
+          font-weight: 700;
           font-size: 2.4rem;
-          color: #4c6275;
+          color: #ffffff;
+        }
+        .category{
+          background-color: rgba(233, 231, 231, 0.767);
+          padding: 5px 20px;
+          border-radius: 5px;
+          font-size: 12px;
         }
       }
     }
   }
 
-  button{
-    width: 100%;
+  .complementations-box-desktop{
+    margin-top: 30px;
+    border-radius: 5px;
+    padding: 20px;
+
+    .label{
+      color: #999898;
+      font-weight: 100;
+    }
+
+    .location{
+      border-bottom: 2px solid #a4776486;
+
+      h4, h5{
+
+        margin: 10px 0px;
+        padding: 0px;
+      }
+      h4{
+        font-size: 22px;
+        color: #494848
+      }
+      h5{
+        font-size: 16px;
+        color: #A47764 !important;
+      }
+
+    }
+    .infos{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      span{
+        background-color: rgba(233, 231, 231, 0.356);
+        padding: 5px 20px;
+        border-radius: 5px;
+        font-size: 12px;
+        font-weight: 200;
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        min-width: 100px;
+      }
+    }
+
+  }
+
+
+
+}
+
+@media (max-width: 912px){
+  :host{
+    .details-box{
+      margin-top: 30px;
+      width: 90%;
+    }
+  }
+
+}
+
+@media (max-width: 585px){
+  :host{
+    .details-box{
+      margin-top: 30px;
+      width: 99%;
+
+      .details-body{
+        .price-box-mobile{
+          display: block;
+          border: 1px solid #4C6275(206, 206, 206);
+          border-radius: 5px;
+          box-shadow: 0 0 3px rgba(30,41,59,.15)!important;
+          padding: 10px;
+
+          border-radius: 5px;
+          box-shadow: 0 0 33px rgba(30, 41, 59, 0.274)!important;
+          padding: 20px;
+          background-color: #553232;
+          p{
+            color: #e2e2e2;
+          }
+
+          .value{
+            font-weight: 700;
+            font-size: 2.4rem;
+            color: #ffffff;
+          }
+          .category{
+            background-color: rgba(233, 231, 231, 0.767);
+            padding: 5px 20px;
+            border-radius: 5px;
+            font-size: 12px;
+          }
+        }
+        .complementations-box-mobile{
+          display: initial;
+          margin-top: 30px;
+          border-radius: 5px;
+          padding: 20px;
+
+          .label{
+            color: #999898;
+            font-weight: 100;
+          }
+
+          .location{
+            border-bottom: 2px solid #a4776486;
+
+            h4, h5{
+
+              margin: 10px 0px;
+              padding: 0px;
+            }
+            h4{
+              font-size: 22px;
+              color: #494848
+            }
+            h5{
+              font-size: 16px;
+              color: #A47764 !important;
+            }
+
+          }
+          .infos{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            span{
+              background-color: rgba(233, 231, 231, 0.356);
+              padding: 5px 20px;
+              border-radius: 5px;
+              font-size: 12px;
+              font-weight: 200;
+              flex: 1;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              text-align: center;
+              min-width: 100px;
+            }
+          }
+
+        }
+
+      }
+
+      .details-side{
+        display: none;
+      }
+    }
   }
 
 }

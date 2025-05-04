@@ -1,37 +1,78 @@
 
-<app-slide-property-details />
-<section class="details-box">
-  <div class="details-body">
-    <h1 class="title">Apartamento mobiliado no Araçagy</h1>
-    <p>
-      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-      doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo
-      inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-      Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
-      fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
-      sequi nesciunt.
-    </p>
-    <p>
-      But I must explain to you how all this mistaken idea of denouncing
-      pleasure and praising pain was born and I will give you a complete account
-      of the system, and expound the actual teachings of the great explorer of
-      the truth, the master-builder of human happiness.
-    </p>
-    <p>
-      Nor again is there anyone who loves or pursues or desires to obtain pain
-      of itself, because it is pain, but because occasionally circumstances
-      occur in which toil and pain can procure him some great pleasure.
-    </p>
-  </div>
-  <div class="details-side">
-    <div class="price-box">
-      <p>Preço:</p>
-      <p class="value">R$ 200.000</p>
-      <!-- <span> Á venda</span> -->
+@if(property){
+  <app-slide-property-details />
+  <section class="details-box">
+    <div class="details-body">
+      <h1 class="title">{{property.titulo}}</h1>
+      <div class="price-box-mobile">
+        <p>Preço para:</p>
+        <span class="category">
+          {{property?.categoria}}
+        </span>
+        <p class="value">{{property?.preco | currency: 'BRL':'symbol-narrow':'1.0-0'}}</p>
 
-      <button mat-stroked-button>Agendar visita</button>
+        <button mat-button>Agendar visita</button>
+      </div>
+      <div class="description" [innerHTML]="property?.descricao"></div>
+
+      <div class="complementations-box-mobile">
+        <p class="label">Localização</p>
+        <div class="location">
+          <h4>{{property?.end_bairro}}</h4>
+          <h5>{{property?.end_cidade}}/{{property?.end_uf}}</h5>
+        </div>
+
+        <p class="label">Contém </p>
+        <div class="infos">
+          @for (item of property?.dets_imovel; track $index) {
+            <span>{{item}}</span>
+          }
+          @for (item of property?.dets_area_comum; track $index) {
+            <span>{{item}}</span>
+          }
+        </div>
+        <div class="infos">
+          @for (item of property?.dets_outros; track $index) {
+            <span>{{item}}</span>
+          }
+        </div>
+      </div>
 
     </div>
+    <div class="details-side">
+      <div class="price-box-desktop">
+        <p>Preço para:</p>
+        <span class="category">
+          {{property?.categoria}}
+        </span>
+        <p class="value">{{property?.preco | currency: 'BRL':'symbol-narrow':'1.0-0'}}</p>
 
-  </div>
-</section>
+        <button mat-button>Agendar visita</button>
+
+      </div>
+
+      <div class="complementations-box-desktop">
+        <p class="label">Localização</p>
+        <div class="location">
+          <h4>{{property?.end_bairro}}</h4>
+          <h5>{{property?.end_cidade}}/{{property?.end_uf}}</h5>
+        </div>
+
+        <p class="label">Contém </p>
+        <div class="infos">
+          @for (item of property?.dets_imovel; track $index) {
+            <span>{{item}}</span>
+          }
+          @for (item of property?.dets_area_comum; track $index) {
+            <span>{{item}}</span>
+          }
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+
+}

@@ -6,7 +6,7 @@ export const routes: Routes = [
     loadComponent: () => import('./views/home/home.component').then(c => c.HomeComponent)
   },
   {
-    path: 'details',
+    path: 'imoveis/:slug',
     loadComponent: () => import('./views/property-details/property-details.component').then(c => c.PropertyDetailsComponent)
   }
 ];

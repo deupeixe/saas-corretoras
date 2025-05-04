@@ -21,6 +21,7 @@ export class PropertyStoreService {
   select = {
     state: computed(() => this.#state()),
     loading: computed(() => this.#loading()),
+    one: (url:string) =>  this.#extractOne(url)
   }
 
 
@@ -64,6 +65,10 @@ export class PropertyStoreService {
 
     })
 
+  }
+
+  #extractOne(slug: string){
+    return computed(() => this.#state().find((elem) => elem?.url.includes(slug) || elem?.codigo.includes(slug) || elem?.id.includes(slug)))
   }
 
   #setInState(res: IResponse, replaceAll = false) {
