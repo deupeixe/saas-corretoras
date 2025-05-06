@@ -1,5 +1,5 @@
 
-.desktop{
+.header-box{
   width: 100%;
   background-color: #FFFFFF;
   border-bottom: 1px solid;
@@ -111,13 +111,21 @@
 }
 
 @media (max-width: 820px){
+  .header-box{
+    position: fixed;
+    top: 0;
+    z-index: 100000;
+    max-height: 70px !important;
+    width: 100dvw !important;
+
+  }
   .menu-items, .infos{
     display: none !important;
   }
 
   .logo{
     justify-content: end !important;
-    margin-right: 20px;
+    margin-right: 10px;
 
   }
 
