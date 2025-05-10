@@ -1,6 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 @use '@angular/material' as mat;
 
+:root {
+  --color-1: #CCAA7C;
+  --color-2:  #2C484C;
+  --color-3:  #162527;
+  --color-4: #D3D3D3;
+  --color-l1: #ffff;
+  --color-l2: #e2e2e2e8;
+  --color-bg1: #F8F8F8;
+}
+
+
 *{
   font-family: "Archivo", sans-serif;
   font-optical-sizing: auto;
@@ -10,7 +21,7 @@
 }
 body{
   margin: 0px;
-  background-color: #F8F8F8;
+  background-color: var(--color-bg1);
 }
 
 .btn-primary{
@@ -64,6 +75,14 @@ button{
   width: 100%;
 
 }
+
+.anim-link{
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.anim-link:hover {
+  transform: translateY(-3px);
+}
+
 
 
 

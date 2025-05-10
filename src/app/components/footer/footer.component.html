@@ -1,0 +1,41 @@
+<footer>
+  <div class="box">
+    <div class="perfil">
+      <img
+        src="images/sublogo-telmamonteiro-branco-final.png"
+        alt="sublogo-telmamonteiro-branco"
+        class="anim-link"
+      />
+      <p>
+        Sou mãe e consultora de imóveis no Maranhão, registrada no CRECI/MA 6489
+        e formada em Administração (CRA 3480). Te ajudo a encontrar o imóvel
+        ideal com praticidade e transparência.
+      </p>
+
+      <nav>
+        @for (item of social; track $index) {
+        <a [href]="item.link" target="_blank" class="anim-link">
+          <fa-icon [icon]="item.icon"></fa-icon>
+        </a>
+        }
+      </nav>
+    </div>
+    <div class="menu">
+      <h3>Menu</h3>
+      <nav>
+        @for (item of menu; track $index) {
+        <a [href]="item.link" target="_blank" class="anim-link"> + {{ item.title }} </a>
+        }
+      </nav>
+    </div>
+    <div class="contacts">
+      <h3>Contatos</h3>
+      <nav>
+        @for (item of contacts; track $index) {
+        <a [href]="item.link" target="_blank" class="anim-link"> <span><fa-icon [icon]="item.icon"></fa-icon></span>  {{ item.title }} </a>
+        }
+        <a href="https://djbrunomonteiro.com.br/" target="_blank" style="color: rgb(70, 69, 69);" class="anim-link">Desenvolvido por Brunomonteiro</a>
+      </nav>
+    </div>
+  </div>
+</footer>
