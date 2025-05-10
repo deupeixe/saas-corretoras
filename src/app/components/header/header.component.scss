@@ -1,24 +1,21 @@
 
 .header-box{
   width: 100%;
-  background-color: #FFFFFF;
+  // background-color: var(--color-2);
+  background: linear-gradient(to left, #2C484C, #162527);
   border-bottom: 1px solid;
   height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
-
-
+  position: relative;
+  z-index: 10000;
   .nav-menu{
     width: 90%;
     display: flex;
     justify-content: space-around;
     align-items: center;
-
-    // border: 1px solid red;
-    color: #111111;
     a{
-      color: #111111;
       text-decoration: none;
     }
 
@@ -32,11 +29,13 @@
       fa-icon{
         font-size: 25px;
         font-weight: 200;
+        color: var(--color-l1);
       }
 
     }
     .menu-items{
       display: flex;
+      color: var(--color-l1);
       ul{
         list-style-type: none !important;
       }
@@ -45,6 +44,7 @@
         list-style-type: none !important;
         a{
           font-size: clamp(12px, 1.2vw, 16px);
+          color: var(--color-l1);
         }
 
       }
@@ -55,47 +55,40 @@
       flex: 1;
       display: flex;
       justify-content: center;
+
       img{
-        max-width: clamp(130px, 190px, 200px);
+        width: 300px;
       }
     }
 
-    .infos{
-      // max-width: 490px;
+    .contacts{
       padding:  clamp(10px, 30px, 30px);
       display: flex;
-      .item{
-        padding-left: 40px;
-        position: relative;
-        margin-right: 30px;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
 
+      .item{
+        display: flex;
+        align-items: center;
+        gap: 10px;
         fa-icon {
-          position: absolute;
           left: 0;
-          top: px;
           height: 30px;
           width: 30px;
           text-align: center;
           line-height: 30px;
           border-radius: 4px;
-          background: #111;
-          color: #fff;
+          background: var(--color-3);
+          color: var(--color-4);
           font-size: 14px;
-        }
-        span{
-          font-weight: 600;
-          font-size: clamp(12px, 1.2vw, 14px);
-          // font-size: 14px;
-          padding-bottom: 4px;
-          color: #777777;
-
         }
         a{
 
           display: block;
-          font-size: clamp(12px, 1.2vw, 20px);
+          font-size: 16px;
           font-weight: 200;
-          margin-top: 5px;
+          color: var(--color-1);
         }
 
       }
@@ -103,6 +96,7 @@
 
   }
 }
+
 
 @media (max-width: 1024px){
   .nav-menu{
@@ -119,14 +113,16 @@
     width: 100dvw !important;
 
   }
-  .menu-items, .infos{
+  .menu-items, .contacts{
     display: none !important;
   }
 
   .logo{
     justify-content: end !important;
-    margin-right: 10px;
-
+    margin-right: 20px;
+    img{
+      width: 250px !important;
+    }
   }
 
 

@@ -10,23 +10,16 @@
     </ul>
 
     <div class="logo">
-      <img src="https://androthemes.com/themes/angular/nycondos/assets/img/logo.png" alt="">
+      <img src="/images/sublogo-telmamonteiro-padrao-final.png" alt="">
     </div>
 
-    <div class="infos">
-      <div class="item">
-        <fa-icon [icon]="faPhone"></fa-icon>
-        <span>Contato / Whatsapp</span>
-        <a href="http://">98 970278028</a>
-      </div>
-      <div class="item">
-        <fa-icon [icon]="faEnvelope"></fa-icon>
-        <span>Email / Informações</span>
-        <a href="http://">telmamonteirogmail.com</a>
-      </div>
-
+    <div class="contacts">
+      @for (item of contacts; track $index) {
+        <div class="item">
+          <fa-icon [icon]="item.icon"></fa-icon>
+          <a [href]="item.link" target="_blank" class="anim-link">{{item.text}}</a>
+        </div>
+      }
     </div>
-
-
   </nav>
 </header>
