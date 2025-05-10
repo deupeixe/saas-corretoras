@@ -66,7 +66,7 @@ export class GridComponent implements OnInit, OnChanges{
         value: 'fazenda',
       },
       {
-        title: 'Ambos',
+        title: 'Todos os Tipos',
         value: 'ambos',
       },
     ],

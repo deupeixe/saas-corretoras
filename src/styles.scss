@@ -8,6 +8,9 @@
   --color-4: #D3D3D3;
   --color-l1: #ffff;
   --color-l2: #e2e2e2e8;
+  --color-l3: #3c666d50;
+  --color-t1: #272727e8;
+  --color-t2: #7e7e7ee8;
   --color-bg1: #F8F8F8;
 }
 
@@ -34,26 +37,31 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 :root {
   @include mat.button-overrides((
-    text-label-text-color: rgb(168, 115, 0),
-    text-state-layer-color: rgb(180, 180, 180),
-    text-ripple-color: rgb(209, 209, 209),
-    text-label-text-weight: 900,
-    text-label-text-size: 22px
+    protected-container-color: var(--color-l1),
+    protected-label-text-color: var(--color-2),
+    protected-label-text-weight: 800,
+    protected-state-layer-color: var(--color-3),
   ));
 
   @include mat.button-toggle-overrides((
     shape: 5px,
-    height: 57px
+    height: 57px,
+    text-color: var(--color-3),
+    selected-state-background-color: var(--color-l3),
+    selected-state-text-color: var(--color-3),
   ));
   @include mat.form-field-overrides((
-    container-height: 56px
+    container-height: 56px,
+    outlined-label-text-color: var(--color-3),
+    outlined-outline-color: var(--color-2)
+
   ))
 }
 app-property-details{
   @include mat.button-overrides((
     text-label-text-color: rgb(187, 255, 0),
-    text-state-layer-color: rgb(180, 180, 180),
-    text-ripple-color: rgb(209, 209, 209),
+    text-state-layer-color: var(--color-t2),
+    text-ripple-color: var(--color-t2),
     text-label-text-weight: 900,
     text-label-text-size: 22px
   ));
@@ -64,11 +72,23 @@ app-property-details{
 app-grid{
   .mat-mdc-text-field-wrapper{
     padding-top: 3px !important;
-    // border: 1px solid red;
   }
   .mat-mdc-form-field-subscript-wrapper{
     display: none;
   }
+}
+
+app-subscribe{
+  @include mat.button-overrides((
+    protected-container-color: var(--color-3),
+    protected-label-text-color: var(--color-1),
+    protected-label-text-weight: 800,
+    protected-state-layer-color: var(--color-3),
+    protected-container-shape: 5px,
+    protected-container-height: 57px,
+  ));
+
+
 }
 
 button{
