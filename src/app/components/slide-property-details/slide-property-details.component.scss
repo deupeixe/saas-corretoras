@@ -1,60 +1,87 @@
-:host{
-  width: 100%;
+:host {
+  // width: 100%;
   height: auto;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
 
-  .slide-grid-box{
+  .desktop-grid-box {
     display: flex;
     justify-content: center;
-    // flex-wrap: wrap;
     gap: 10px;
-    width: 100%;
-    height: auto;
-    // max-height: 400px;
-    // border: 1px solid red;
-    .one-col{
-      width: 45%;
+    width: 80%;
+    // height: 550px;
+    // overflow: hidden;
 
-      // height: 550px;
-      .img-box{
-        // height: 250px;
+    .one-col {
+      width: 50%;
+      height: 550px;
+      overflow: hidden;
+
+      .img-box {
+        width: 100%;
+        // height: 550px;
         padding-bottom: 5px;
-        img{
+        img {
           width: 100%;
-          height: auto;
-
-          object-fit: contain;
+          height: 100%;
+          object-fit: cover;
         }
       }
     }
-    .two-col{
-      width: 45%;
-      height: 100%;
-      // border: 1px solid red;
+    .two-col {
+      width: 50%;
+      height: 550px;
       display: flex;
-      flex-direction: column;
       justify-content: center;
-      align-items: center;
-      .row{
-        width: 100%;
+      flex-wrap: wrap;
+      // gap: 10px;
+
+      .img-box {
+        flex: 1;
+        min-width: 48%;
+        height: 50%;
+        position: relative;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        .over {
+          position: absolute;
+          top: 40%;
+          left: 40%;
+          color: var(--color-l1);
+          font-size: 40px;
+          font-weight: 500;
+          border-bottom: 1px solid var(--color-1);
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+        }
+      }
+    }
+  }
+
+  .mobile {
+    display: flex;
+    width: 100%;
+    margin-top:70px;
+    swiper-container {
+      width:100dvw;
+
+      swiper-slide {
         display: flex;
-        justify-content: space-between;
-        // flex-direction: column;
-        gap: 10px ;
-        .img-box{
-          width: 50%;
-          margin-bottom: 2px;
-
-          img{
-            width: 100%;
-            height: auto;
-            object-fit: contain;
-
-          }
+        justify-content: center;
+        overflow: hidden;
+        height: 500px;
+        img{
+          height:100%;
+          object-fit: contain;
         }
 
       }
     }
   }
-
-
 }
+
+

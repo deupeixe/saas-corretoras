@@ -53,9 +53,24 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   @include mat.form-field-overrides((
     container-height: 56px,
     outlined-label-text-color: var(--color-3),
-    outlined-outline-color: var(--color-2)
+    outlined-outline-color: var(--color-2),
+  ));
+  @include mat.dialog-overrides((
+    container-color: rgba(0, 0, 0, 0),
+  ));
+  @include mat.dialog-overrides((
+    container-color: var(--color-2),
+    subhead-color: red,
+    container-shape: 5px,
+    // container-small-max-width: 80%,
+    // container-max-width: 100%,
+    // container-min-width: 90%,
+    content-padding: 5px
 
-  ))
+  ));
+}
+.mat-mdc-dialog-content{
+  max-height: 80vh !important;
 }
 app-property-details{
   @include mat.button-overrides((
@@ -87,7 +102,6 @@ app-subscribe{
     protected-container-shape: 5px,
     protected-container-height: 57px,
   ));
-
 
 }
 

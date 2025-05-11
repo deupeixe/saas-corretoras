@@ -132,10 +132,12 @@
 @media (max-width: 585px){
   :host{
     .details-box{
-      margin-top: 30px;
+      margin-top: 0px;
+
       width: 99%;
 
       .details-body{
+        padding: 10px 20px 20px 20px !important;
         .price-box-mobile{
           display: block;
           border: 1px solid #4C6275(206, 206, 206);

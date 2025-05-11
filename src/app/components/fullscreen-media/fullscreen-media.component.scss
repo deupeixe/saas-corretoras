@@ -1,0 +1,56 @@
+
+swiper-container{
+  swiper-slide{
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    // overflow: hidden;
+    img{
+      // width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+}
+}
+
+mat-dialog-actions{
+  display: flex;
+  justify-content: center;
+  .imgs-box{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    // border: 1px solid red;
+    width: 80%;
+    gap: 10px;
+    .item{
+      width: 70px ;
+      height: 70px;
+      // background-color: red;
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    .selected{
+      border: 5px dashed var(--color-1);
+    }
+
+
+  }
+
+}
+
+.btn-close{
+  position: absolute;
+  right: 0;
+  top: 5px;
+  background-color: #ffffff00;
+  width: 30px;
+  padding: 10px;
+  border-radius: 0px;
+  color: var(--color-1);
+  z-index: 5000;
+}
+

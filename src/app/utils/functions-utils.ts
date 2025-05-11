@@ -32,3 +32,20 @@ export function validJsonStr(str: any) {
   }
   return true;
 }
+
+export function sortArray(array: any[], key: any = null, ascending = true) {
+  return array.slice().sort((a, b) => {
+    const valA = key ? a[key] : a;
+    const valB = key ? b[key] : b;
+
+    if (typeof valA === 'string') {
+      return ascending
+        ? valA.localeCompare(valB)
+        : valB.localeCompare(valA);
+    }
+
+    return ascending
+      ? valA - valB
+      : valB - valA;
+  });
+}

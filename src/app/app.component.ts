@@ -3,7 +3,9 @@ import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { PropertyStoreService } from './store/property-store.service';
 import { FooterComponent } from './components/footer/footer.component';
+import { register } from 'swiper/element/bundle';
 
+register();
 @Component({
   selector: 'app-root',
   imports: [

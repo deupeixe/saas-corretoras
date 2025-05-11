@@ -1,0 +1,25 @@
+
+<mat-dialog-content>
+  <button class="btn-close" mat-button mat-dialog-close>X Fechar</button>
+  <swiper-container #swiperRef [pagination]="true" [navigation]="true">
+
+    @for (item of data?.images; track $index) {
+      <swiper-slide>
+        <img [src]="item?.url" alt="">
+      </swiper-slide>
+    }
+
+  </swiper-container>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <div class="imgs-box">
+    @for (item of data?.images; track $index) {
+      <a (click)="select($index)" href="javascript:void(0)" class="item" [ngClass]="{'selected': selected() === $index}">
+        <img [src]="item?.url" alt="">
+      </a>
+      }
+
+  </div>
+
+</mat-dialog-actions>
