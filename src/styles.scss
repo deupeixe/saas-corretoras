@@ -83,7 +83,6 @@ app-property-details{
 }
 
 
-
 app-grid{
   .mat-mdc-text-field-wrapper{
     padding-top: 3px !important;
@@ -101,6 +100,14 @@ app-subscribe{
     protected-state-layer-color: var(--color-3),
     protected-container-shape: 5px,
     protected-container-height: 57px,
+  ));
+
+}
+
+app-admin-container{
+  @include mat.button-overrides((
+    protected-container-shape: 5px,
+    protected-state-layer-color: var(--color-4),
   ));
 
 }
