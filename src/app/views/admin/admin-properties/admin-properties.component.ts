@@ -16,6 +16,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { CurrencyPipe, DecimalPipe } from '@angular/common';
 import { faExpand, faBath, faWarehouse, faBed, faCar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MatDialog } from '@angular/material/dialog';
+import { PropertyEditorComponent } from '../../../components/property-editor/property-editor.component';
 
 @Component({
   selector: 'app-admin-properties',
@@ -38,7 +40,8 @@ export class AdminPropertiesComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  propertyStore = inject(PropertyStoreService);
+  readonly propertyStore = inject(PropertyStoreService);
+  readonly dialog = inject(MatDialog);
 
   displayedColumns: string[] = ['status', 'thumb', 'title', 'other', 'actions'];
   dataSource = new MatTableDataSource([] as any[]);
@@ -69,7 +72,7 @@ export class AdminPropertiesComponent implements AfterViewInit {
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
       console.log(items);
-    }, 500);
+    }, 1000);
   }
 
   applyFilter(event: Event) {
@@ -78,5 +81,16 @@ export class AdminPropertiesComponent implements AfterViewInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  openEditor(property: any) {
+    console.log('okok', property)
+    const dialogRef = this.dialog.open(PropertyEditorComponent, {data: {property}, minWidth: '1100px', height: '100%'});
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      if (result !== undefined) {
+        // this.animal.set(result);
+      }
+    });
   }
 }

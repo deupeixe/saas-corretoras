@@ -1,0 +1,271 @@
+<h2 mat-dialog-title>
+  @if(data?.property){
+    Editar
+  }@else {
+    Adicionar
+  }
+</h2>
+<mat-dialog-content>
+
+  <form [formGroup]="form">
+
+    <mat-stepper #stepper>
+      <mat-step [stepControl]="ctrltitulo && ctrldescricao" errorMessage="Itens requerido">
+        <ng-template matStepLabel>Dados Básicos</ng-template>
+        <mat-form-field appearance="outline">
+          <mat-label>STATUS</mat-label>
+          <mat-select formControlName="status">
+            <mat-option value="aberto">Aberto</mat-option>
+            <mat-option value="finalizado">Finalizado</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="mt-2">
+          <mat-label>Titulo</mat-label>
+          <input matInput placeholder="ex: Casa de Vila em Moema " formControlName="titulo" required>
+        </mat-form-field>
+
+        <div>
+          <ngx-editor-menu [editor]="editor"> </ngx-editor-menu>
+          <ngx-editor [editor]="editor" formControlName="descricao"  [disabled]="false" [placeholder]="'Ex. casa próximo de tudo...'" ></ngx-editor>
+        </div>
+        <p>Endereço</p>
+
+
+
+        <div class="address">
+          <mat-form-field class="w-25 m-rigth" appearance="outline">
+            <mat-label>UF</mat-label>
+            <mat-select formControlName="end_uf">
+              @for (item of estados; track $index) {
+              <mat-option [value]="item?.sigla">{{item?.nome}}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="w-25 m-rigth" appearance="outline">
+            <mat-label>CIDADE</mat-label>
+            <mat-select formControlName="end_cidade">
+              @for (item of cidades; track $index) {
+              <mat-option [value]="item">{{item}}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="w-25" appearance="outline">
+            <mat-label>BAIRRO</mat-label>
+            <input matInput formControlName="end_bairro">
+          </mat-form-field>
+
+        </div>
+
+
+        <div>
+          <button mat-button matStepperNext>Próximo</button>
+        </div>
+      </mat-step>
+
+      <mat-step [stepControl]="ctrlcategoria && ctrltipo && ctrlpreco" errorMessage="Itens requerido">
+        <ng-template matStepLabel>Categorização / Valores</ng-template>
+        <p>Categorização</p>
+
+        <div class="d-flex">
+          <mat-form-field class="w-25 m-rigth" appearance="outline">
+            <mat-label>Código</mat-label>
+            <input matInput formControlName="codigo">
+          </mat-form-field>
+
+          <mat-form-field class="w-25 m-rigth" appearance="outline">
+            <mat-label>Categoria</mat-label>
+            <mat-select formControlName="categoria">
+              @for (item of utils.categorias; track $index) {
+              <mat-option [value]="item">{{item | uppercase}}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="w-50" appearance="outline">
+            <mat-label>Tipo</mat-label>
+            <mat-select formControlName="tipo">
+              @for (item of utils.tipos; track $index) {
+              <mat-option [value]="item">{{item | uppercase}}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+
+        </div>
+
+        <p>Valores R$</p>
+
+        <div class="d-flex">
+          <mat-form-field class="w-25 m-rigth" appearance="outline">
+            <mat-label>Preço</mat-label>
+            <input matInput formControlName="preco" mask="separator.2" thousandSeparator="." decimalMarker=","
+              [prefix]="'R$'">
+          </mat-form-field>
+
+          <mat-form-field class="w-25 m-rigth" appearance="outline">
+            <mat-label>IPTU</mat-label>
+            <input matInput formControlName="iptu" mask="separator.2" thousandSeparator="." decimalMarker=","
+              [prefix]="'R$'">
+          </mat-form-field>
+          <mat-form-field class="w-25" appearance="outline">
+            <mat-label>Condomínio</mat-label>
+            <input matInput formControlName="condominio" mask="separator.2" thousandSeparator="." decimalMarker=","
+              [prefix]="'R$'">
+          </mat-form-field>
+        </div>
+
+
+
+
+        <div>
+          <button mat-button matStepperNext>Próximo</button>
+        </div>
+      </mat-step>
+
+      <mat-step>
+        <ng-template matStepLabel>Detalhamento</ng-template>
+
+        <p>Principal</p>
+        <div class="d-flex mt-3">
+          <mat-form-field class="w-25 m-rigth" appearance="outline">
+            <mat-label>Área útil (Metros)</mat-label>
+            <input matInput placeholder="ex: 30" formControlName="area_util" mask="separator" thousandSeparator="."
+              id="area_util">
+
+          </mat-form-field>
+        </div>
+
+        <div class="d-flex mt-3">
+          <mat-form-field class="w-25 m-rigth" appearance="outline">
+            <mat-label>Suítes</mat-label>
+            <mat-select formControlName="qtd_suite">
+              @for (item of utils.nums; track $index) {
+              <mat-option [value]="item">{{item}}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="w-25 m-rigth" appearance="outline">
+            <mat-label>Dormitorios</mat-label>
+            <mat-select formControlName="qtd_dorm">
+              @for (item of utils.nums; track $index) {
+              <mat-option [value]="item">{{item}}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="w-25 m-rigth" appearance="outline">
+            <mat-label>Banheiros</mat-label>
+            <mat-select formControlName="qtd_ban">
+              @for (item of utils.nums; track $index) {
+              <mat-option [value]="item">{{item}}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="w-25" appearance="outline">
+            <mat-label>Vagas de garagem</mat-label>
+            <mat-select formControlName="qtd_vaga">
+              @for (item of utils.nums; track $index) {
+              <mat-option [value]="item">{{item}}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <p>Detalhes</p>
+
+        <div class="d-flex mt-3">
+          <mat-form-field appearance="outline" class="m-rigth">
+            <mat-label>Imóvel</mat-label>
+            <mat-select formControlName="dets_imovel" multiple>
+              @for (item of utils.areasImovel; track $index) {
+              <mat-option [value]="item">{{item}}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label> Área Comum</mat-label>
+            <mat-select formControlName="dets_area_comum" multiple>
+              @for (item of utils.areasComuns; track $index) {
+              <mat-option [value]="item">{{item}}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="d-flex">
+
+
+          <mat-form-field appearance="outline" class="m-rigth">
+            <mat-label> Pŕoximidades</mat-label>
+            <mat-select formControlName="dets_proximidades" multiple>
+              @for (item of utils.itensProximos; track $index) {
+              <mat-option [value]="item">{{item}}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label> Outros</mat-label>
+            <mat-select formControlName="dets_outros" multiple>
+              @for (item of utils.itensAdicionais; track $index) {
+              <mat-option [value]="item">{{item}}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <button mat-button matStepperNext>Próximo</button>
+        </div>
+      </mat-step>
+
+      <mat-step>
+        <ng-template matStepLabel>Fotos | Video</ng-template>
+
+        <p>Youtube Video</p>
+        <div class="d-flex mt-3">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Link do youtube</mat-label>
+            <input matInput formControlName="tour_virtual">
+          </mat-form-field>
+        </div>
+
+
+        <p>Fotos Padrão</p>
+
+        <!-- @if(loadingUpload){
+        Enviando imagens
+        <mat-progress-bar mode="buffer"></mat-progress-bar>
+        }@else{
+        <mat-form-field appearance="fill">
+          <mat-label>Arraste seus arquivos ou clique aqui!</mat-label>
+          <ngx-mat-dropzone>
+            <input type="file" multiple fileInput [formControl]="filesCtrl" accept="image/*" />
+          </ngx-mat-dropzone>
+          <mat-icon matSuffix color="primary">cloud_upload</mat-icon>
+        </mat-form-field>
+
+        }
+
+        <div class="d-flex flex-wrap">
+          @for (item of fotos$ | async; track $index) {
+          <div class="foto-container">
+            <img [src]="item" alt="" style="width: 150px; height: 150px;">
+            <button (click)="remove($index)" mat-stroked-button color="warn" class="w-100">remover</button>
+          </div>
+          }
+        </div> -->
+      </mat-step>
+
+    </mat-stepper>
+
+  </form>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="dialogRef.close();">Cancelar</button>
+  <button mat-button cdkFocusInitial>Ok</button>
+</mat-dialog-actions>
