@@ -65,6 +65,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   @include mat.stepper-overrides((
     container-color: var(--color-l1),
   ));
+  @include mat.form-field-overrides((
+    filled-caret-color: var(--color-1),
+    filled-focus-active-indicator-color: var(--color-1),
+    filled-container-color: var(--color-4),
+    filled-label-text-color: var(--color-3)
+  ));
 }
 .mat-mdc-dialog-content{
   max-height: 80vh !important;
@@ -123,12 +129,20 @@ app-property-editor{
     container-shape: 5px,
     content-padding: 5px
   ));
+  @include mat.button-overrides((
+    protected-container-color: var(--color-l1),
+    protected-label-text-color: var(--color-2),
+    protected-label-text-weight: 800,
+    protected-state-layer-color: var(--color-3),
+  ));
+
   .mat-horizontal-content-container{
     padding-top: 10px !important;
   }
 
   .NgxEditor__Content{
     height: 300px !important;
+    overflow: auto;
   }
 }
 

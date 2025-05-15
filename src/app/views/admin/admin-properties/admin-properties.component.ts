@@ -17,7 +17,7 @@ import { CurrencyPipe, DecimalPipe } from '@angular/common';
 import { faExpand, faBath, faWarehouse, faBed, faCar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatDialog } from '@angular/material/dialog';
-import { PropertyEditorComponent } from '../../../components/property-editor/property-editor.component';
+import { PropertyEditorComponent } from '../property-editor/property-editor.component';
 
 @Component({
   selector: 'app-admin-properties',
@@ -83,8 +83,7 @@ export class AdminPropertiesComponent implements AfterViewInit {
     }
   }
 
-  openEditor(property: any) {
-    console.log('okok', property)
+  openEditor(property: any = undefined) {
     const dialogRef = this.dialog.open(PropertyEditorComponent, {data: {property}, minWidth: '1100px', height: '100%'});
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');

@@ -34,7 +34,7 @@
 
 
         <div class="address">
-          <mat-form-field class="w-25 m-rigth" appearance="outline">
+          <mat-form-field  appearance="outline">
             <mat-label>UF</mat-label>
             <mat-select formControlName="end_uf">
               @for (item of estados; track $index) {
@@ -43,7 +43,7 @@
             </mat-select>
           </mat-form-field>
 
-          <mat-form-field class="w-25 m-rigth" appearance="outline">
+          <mat-form-field  appearance="outline">
             <mat-label>CIDADE</mat-label>
             <mat-select formControlName="end_cidade">
               @for (item of cidades; track $index) {
@@ -59,23 +59,19 @@
 
         </div>
 
-
-        <div>
-          <button mat-button matStepperNext>Próximo</button>
-        </div>
       </mat-step>
 
       <mat-step [stepControl]="ctrlcategoria && ctrltipo && ctrlpreco" errorMessage="Itens requerido">
         <ng-template matStepLabel>Categorização / Valores</ng-template>
         <p>Categorização</p>
 
-        <div class="d-flex">
-          <mat-form-field class="w-25 m-rigth" appearance="outline">
+        <div class="default-box">
+          <mat-form-field  appearance="outline">
             <mat-label>Código</mat-label>
             <input matInput formControlName="codigo">
           </mat-form-field>
 
-          <mat-form-field class="w-25 m-rigth" appearance="outline">
+          <mat-form-field  appearance="outline">
             <mat-label>Categoria</mat-label>
             <mat-select formControlName="categoria">
               @for (item of utils.categorias; track $index) {
@@ -84,7 +80,7 @@
             </mat-select>
           </mat-form-field>
 
-          <mat-form-field class="w-50" appearance="outline">
+          <mat-form-field appearance="outline">
             <mat-label>Tipo</mat-label>
             <mat-select formControlName="tipo">
               @for (item of utils.tipos; track $index) {
@@ -97,14 +93,14 @@
 
         <p>Valores R$</p>
 
-        <div class="d-flex">
-          <mat-form-field class="w-25 m-rigth" appearance="outline">
+        <div class="default-box">
+          <mat-form-field  appearance="outline">
             <mat-label>Preço</mat-label>
             <input matInput formControlName="preco" mask="separator.2" thousandSeparator="." decimalMarker=","
               [prefix]="'R$'">
           </mat-form-field>
 
-          <mat-form-field class="w-25 m-rigth" appearance="outline">
+          <mat-form-field  appearance="outline">
             <mat-label>IPTU</mat-label>
             <input matInput formControlName="iptu" mask="separator.2" thousandSeparator="." decimalMarker=","
               [prefix]="'R$'">
@@ -116,29 +112,16 @@
           </mat-form-field>
         </div>
 
+        <p>Detalhamento</p>
 
-
-
-        <div>
-          <button mat-button matStepperNext>Próximo</button>
-        </div>
-      </mat-step>
-
-      <mat-step>
-        <ng-template matStepLabel>Detalhamento</ng-template>
-
-        <p>Principal</p>
-        <div class="d-flex mt-3">
-          <mat-form-field class="w-25 m-rigth" appearance="outline">
+        <div class="default-box">
+          <mat-form-field  appearance="outline">
             <mat-label>Área útil (Metros)</mat-label>
             <input matInput placeholder="ex: 30" formControlName="area_util" mask="separator" thousandSeparator="."
               id="area_util">
-
           </mat-form-field>
-        </div>
 
-        <div class="d-flex mt-3">
-          <mat-form-field class="w-25 m-rigth" appearance="outline">
+          <mat-form-field  appearance="outline">
             <mat-label>Suítes</mat-label>
             <mat-select formControlName="qtd_suite">
               @for (item of utils.nums; track $index) {
@@ -147,7 +130,16 @@
             </mat-select>
           </mat-form-field>
 
-          <mat-form-field class="w-25 m-rigth" appearance="outline">
+          <mat-form-field  appearance="outline">
+            <mat-label>Banheiros</mat-label>
+            <mat-select formControlName="qtd_ban">
+              @for (item of utils.nums; track $index) {
+              <mat-option [value]="item">{{item}}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field  appearance="outline">
             <mat-label>Dormitorios</mat-label>
             <mat-select formControlName="qtd_dorm">
               @for (item of utils.nums; track $index) {
@@ -156,14 +148,7 @@
             </mat-select>
           </mat-form-field>
 
-          <mat-form-field class="w-25 m-rigth" appearance="outline">
-            <mat-label>Banheiros</mat-label>
-            <mat-select formControlName="qtd_ban">
-              @for (item of utils.nums; track $index) {
-              <mat-option [value]="item">{{item}}</mat-option>
-              }
-            </mat-select>
-          </mat-form-field>
+
 
           <mat-form-field class="w-25" appearance="outline">
             <mat-label>Vagas de garagem</mat-label>
@@ -173,11 +158,7 @@
               }
             </mat-select>
           </mat-form-field>
-        </div>
 
-        <p>Detalhes</p>
-
-        <div class="d-flex mt-3">
           <mat-form-field appearance="outline" class="m-rigth">
             <mat-label>Imóvel</mat-label>
             <mat-select formControlName="dets_imovel" multiple>
@@ -195,10 +176,6 @@
               }
             </mat-select>
           </mat-form-field>
-        </div>
-
-        <div class="d-flex">
-
 
           <mat-form-field appearance="outline" class="m-rigth">
             <mat-label> Pŕoximidades</mat-label>
@@ -216,9 +193,7 @@
               }
             </mat-select>
           </mat-form-field>
-        </div>
-        <div>
-          <button mat-button matStepperNext>Próximo</button>
+
         </div>
       </mat-step>
 
@@ -236,7 +211,7 @@
 
         <p>Fotos Padrão</p>
 
-        <!-- @if(loadingUpload){
+        @if(loadingUpload){
         Enviando imagens
         <mat-progress-bar mode="buffer"></mat-progress-bar>
         }@else{
@@ -250,14 +225,14 @@
 
         }
 
-        <div class="d-flex flex-wrap">
-          @for (item of fotos$ | async; track $index) {
-          <div class="foto-container">
-            <img [src]="item" alt="" style="width: 150px; height: 150px;">
-            <button (click)="remove($index)" mat-stroked-button color="warn" class="w-100">remover</button>
+        <div class="default-box">
+          @for (item of ctrlFotos.value; track $index) {
+          <div class="img-box">
+            <img [src]="item" alt="img">
+            <button (click)="remove($index)" mat-icon-button color="warn"><mat-icon>delete</mat-icon></button>
           </div>
           }
-        </div> -->
+        </div>
       </mat-step>
 
     </mat-stepper>
@@ -265,7 +240,13 @@
   </form>
 
 </mat-dialog-content>
-<mat-dialog-actions>
-  <button mat-button (click)="dialogRef.close();">Cancelar</button>
-  <button mat-button cdkFocusInitial>Ok</button>
-</mat-dialog-actions>
+
+@if(propertyStore.select.loading()){
+  <mat-progress-bar mode="buffer"></mat-progress-bar>
+}@else{
+  <mat-dialog-actions>
+    <button mat-raised-button (click)="dialogRef.close();">Cancelar</button>
+    <button mat-raised-button cdkFocusInitial (click)="salvar()">SALVAR OK</button>
+  </mat-dialog-actions>
+
+}

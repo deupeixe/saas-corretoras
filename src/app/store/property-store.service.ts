@@ -1,8 +1,7 @@
 import { computed, inject, Injectable, signal } from '@angular/core';
-import { collection, CollectionReference, Firestore, getDocs } from '@angular/fire/firestore';
-import { from, mergeMap, tap, toArray } from 'rxjs';
+import { collection, CollectionReference, doc, Firestore, getDocs, setDoc, updateDoc } from '@angular/fire/firestore';
+import { firstValueFrom, from, mergeMap, Observable, tap, toArray } from 'rxjs';
 import { IResponse } from '../models/response';
-import { resolve } from 'path';
 import { paramsJsonParse } from '../utils/functions-utils';
 import { UploadService } from '../services/upload.service';
 
@@ -25,7 +24,11 @@ export class PropertyStoreService {
   }
 
 
-  constructor() { }
+  readonly collectionRef!: CollectionReference;
+
+  constructor() {
+
+  }
 
   actionLoadAll() {
     return new Promise<IResponse>(resolve => {
@@ -44,8 +47,6 @@ export class PropertyStoreService {
           mergeMap(async elem => {
             let fotos = elem['fotos'] ?? [];
             let thumb = elem?.thumb ? elem.thumb : fotos[0];
-
-            thumb = await this.#upload.getImage(thumb, 'anuncios');
             return {...elem, thumb}
           }),
           toArray()
@@ -65,6 +66,51 @@ export class PropertyStoreService {
 
     })
 
+  }
+
+  actionSave(item: any) {
+    const res$ = new Observable<IResponse>(observer => {
+      this.#loading.set(true);
+      let response: IResponse = {};
+      let ref: any;
+      let newItem: any;
+      if (item?.id) {
+        ref = doc(this.#collectionRef, item.id);
+        newItem = { ...item, id: ref.id, created_at: new Date().toISOString() };
+        updateDoc(ref, newItem)
+        .then(() => {
+          response = { error: false, results: newItem, message: 'Item atualizado com sucesso!' };
+          this.#setInState(response);
+          observer.next(response)
+        }).catch(err => {
+          console.error(err);
+          response = { error: true, results: undefined, message: 'Ocorreu um error ao tentar atualizar o item. Tente novamente!' }
+          observer.next(response)
+        })
+
+      } else {
+        ref = doc(this.#collectionRef);
+        newItem = { ...item, id: ref.id, created_at: new Date().toISOString() };
+
+        setDoc(ref, newItem)
+          .then(() => {
+            response = { error: false, results: newItem, message: 'Salvo com sucesso.' };
+            observer.next(response)
+          }).catch(err => {
+            console.error(err);
+            observer.next(response)
+        });
+      };
+    })
+
+    return firstValueFrom(res$
+      .pipe(
+        tap(res => {
+          this.#loading.set(false);
+          this.#setInState(res)
+        })
+      )
+  )
   }
 
   #extractOne(slug: string){

@@ -1,0 +1,51 @@
+mat-step{
+  padding: 30px;
+}
+mat-form-field{
+  width: 100%;
+}
+
+.address{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  mat-form-field{
+    flex: 1;
+    min-width: 100px
+  }
+}
+
+.default-box{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  mat-form-field{
+    flex: 1;
+    min-width: 200px
+  }
+
+  .img-box{
+    flex: 1;
+    max-width: 200px;
+    position: relative;
+    img{
+      width: 100%;
+      object-fit: contain;
+    }
+    button{
+      position: absolute;
+      top: 0;
+      right: 0px;
+      color: red;
+    }
+  }
+}
+
+mat-dialog-actions{
+
+  display: flex;
+  justify-content: end;
+  button{
+    max-width: 200px;
+  }
+}
