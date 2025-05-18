@@ -10,6 +10,10 @@ export const routes: Routes = [
     loadComponent: () => import('./views/property-details/property-details.component').then(c => c.PropertyDetailsComponent)
   },
   {
+    path: 'politica-de-privacidade',
+    loadComponent: () => import('./views/politica-privacidade/politica-privacidade.component').then(c => c.PoliticaPrivacidadeComponent)
+  },
+  {
     path: 'admin',
     loadComponent: () => import('./views/admin/admin-container/admin-container.component').then(c => c.AdminContainerComponent),
     children: [

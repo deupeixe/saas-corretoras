@@ -34,9 +34,9 @@
   @if(!this.loading.images){
     <div class="mobile">
       <swiper-container #swiperRef [pagination]="true" [navigation]="true">
-        @for (item of images; track $index) {
+        @for (item of property?.fotos; track $index) {
           <swiper-slide>
-            <img [src]="item?.url" alt="">
+            <img [src]="item" alt="">
           </swiper-slide>
         }
       </swiper-container>

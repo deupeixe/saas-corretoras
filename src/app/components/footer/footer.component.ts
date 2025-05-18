@@ -53,8 +53,8 @@ export class FooterComponent {
       link: '',
     },
     {
-      title: 'Termos e política de privacidade',
-      link: '',
+      title: 'Política de privacidade',
+      link: '/politica-de-privacidade',
     }
 
   ];

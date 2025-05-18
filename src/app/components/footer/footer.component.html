@@ -24,7 +24,7 @@
       <h3>Menu</h3>
       <nav>
         @for (item of menu; track $index) {
-        <a [href]="item.link" target="_blank" class="anim-link"> + {{ item.title }} </a>
+        <a [href]="item.link" class="anim-link"> + {{ item.title }} </a>
         }
       </nav>
     </div>
