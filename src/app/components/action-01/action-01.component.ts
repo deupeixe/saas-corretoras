@@ -1,4 +1,3 @@
-import { NgStyle } from '@angular/common';
 import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -11,7 +10,6 @@ import { environment } from '../../../environments/environment.development';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    NgStyle
   ],
   templateUrl: './action-01.component.html',
   styleUrl: './action-01.component.scss'

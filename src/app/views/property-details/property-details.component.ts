@@ -6,12 +6,16 @@ import { PropertyStoreService } from '../../store/property-store.service';
 import { CurrencyPipe } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { LeadFormComponent } from '../../components/lead-form/lead-form.component';
+import { Action01Component } from '../../components/action-01/action-01.component';
+import { SubscribeComponent } from '../../components/subscribe/subscribe.component';
 @Component({
   selector: 'app-property-details',
   imports: [
     SlidePropertyDetailsComponent,
     MatButtonModule,
-    CurrencyPipe
+    CurrencyPipe,
+    Action01Component,
+    SubscribeComponent
   ],
   templateUrl: './property-details.component.html',
   styleUrl: './property-details.component.scss'
