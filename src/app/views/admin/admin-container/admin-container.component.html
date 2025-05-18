@@ -1,7 +1,7 @@
 <nav>
   <p>Menu Admin</p>
   @for (item of nav; track $index) {
-    <a href="http://" mat-raised-button>{{item.title}}</a>
+    <a [routerLink]="item.url" mat-raised-button>{{item.title}}</a>
   }
 
 </nav>

@@ -77,6 +77,7 @@ export class PropertyEditorComponent implements OnInit {
     dets_area_comum: [''],
     dets_proximidades: [''],
     dets_outros: [''],
+    thumb: [''],
     fotos: [[]],
     tour_virtual: [''],
     end_cep: [''],
@@ -163,7 +164,8 @@ export class PropertyEditorComponent implements OnInit {
   }
 
   async salvar(){
-    const item = {...this.form.value, url: this.createUrl()} as any;
+    const thumb = this.ctrlFotos.value[0] ?? ''
+    const item = {...this.form.value, thumb, url: this.createUrl()} as any;
     const response = await this.propertyStore.actionSave(item);
 
     const {error, message} = response;

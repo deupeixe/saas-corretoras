@@ -5,7 +5,7 @@
 
     @for (item of data?.images; track $index) {
       <swiper-slide>
-        <img [src]="item?.url" alt="">
+        <img [src]="item" alt="">
       </swiper-slide>
     }
 
@@ -16,7 +16,7 @@
   <div class="imgs-box">
     @for (item of data?.images; track $index) {
       <a (click)="select($index)" href="javascript:void(0)" class="item" [ngClass]="{'selected': selected() === $index}">
-        <img [src]="item?.url" alt="">
+        <img [src]="item" alt="">
       </a>
       }
 

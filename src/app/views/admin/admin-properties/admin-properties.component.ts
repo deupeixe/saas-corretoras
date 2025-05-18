@@ -84,12 +84,15 @@ export class AdminPropertiesComponent implements AfterViewInit {
   }
 
   openEditor(property: any = undefined) {
-    const dialogRef = this.dialog.open(PropertyEditorComponent, {data: {property}, minWidth: '1100px', height: '100%'});
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      if (result !== undefined) {
-        // this.animal.set(result);
-      }
-    });
+    this.dialog.open(PropertyEditorComponent, {data: {property}, minWidth: '1100px', height: '100%'});
   }
+
+  removeItem(id: string){
+    const res = confirm('Deletar item ?');
+    if(!res){return}
+    this.propertyStore.actionRemove(id)
+    console.log(res)
+  }
+
+
 }

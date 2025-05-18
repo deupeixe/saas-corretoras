@@ -34,28 +34,8 @@ export class SlidePropertyDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-   this.getImgs()
-  }
-
-  getImgs(){
-    this.loading.images = true;
-    let {fotos} = this.property;
-    // fotos = fotos.filter((_:any, i: any) => i < 5)
-
-    from(fotos).pipe(
-      mergeMap(async (name: any, index: any) => {
-        const url = await this.#upload.getImage(name, 'anuncios');
-        return {url, index}
-      }),
-      toArray()
-    ).subscribe(res => {
-      this.images = sortArray(res, 'index');
-      console.log(this.images)
-      this.loading.images = false;
-    } )
 
   }
-
 
   openMedia(index: number){
     this.dialog.open(FullscreenMediaComponent, {
@@ -63,7 +43,7 @@ export class SlidePropertyDetailsComponent implements OnInit {
       minWidth: '90dvw',
 
       data: {
-        images: this.images,
+        images: this.property.fotos,
         select: index
       },
     });

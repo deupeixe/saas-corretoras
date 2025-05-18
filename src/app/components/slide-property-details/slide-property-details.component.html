@@ -2,23 +2,24 @@
 @if(pageWidth > 768){
   <div class="desktop-grid-box">
     <div class="one-col">
-    @for (item of images; track $index) {
+    @for (item of property?.fotos; track $index) {
       @if($index === 0){
           <a (click)="openMedia($index)" class="img-box" href="javascript:void(0)"  alt="">
-            <img [src]="item?.url" [alt]="'foto' + $index + ' ' + property?.title">
+            <img [src]="item" [alt]="'foto' + $index + ' ' + property?.title">
+            okok
           </a>
         }
       }
     </div>
 
-    @if(images?.length > 1){
+    @if(property?.fotos?.length > 1){
       <div class="two-col">
-         @for (item of images; track $index) {
+         @for (item of property?.fotos; track $index) {
           @if($index > 0 && $index < 5 ){
             <a (click)="openMedia($index)" class="img-box" href="javascript:void(0)"  alt="">
-              <img [src]="item?.url" [alt]="'foto' + $index + ' ' + property?.title">
-              @if($index === 4 && images?.length  > 5){
-                <span class="over">+ {{images?.length - ($index + 1)}}</span>
+              <img [src]="item" [alt]="'foto' + $index + ' ' + property?.title">
+              @if($index === 4 && property?.fotos?.length  > 5){
+                <span class="over">+ {{property?.fotos?.length - ($index + 1)}}</span>
               }
             </a>
           }

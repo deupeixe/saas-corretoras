@@ -17,10 +17,10 @@ export class AdminContainerComponent {
   nav = [
     {
       title: 'Dashboard',
-      url: '/dashboard'
+      url: '/admin'
     },    {
       title: 'Ímoveis',
-      url: '/imoveis'
+      url: '/admin/imoveis'
     },    {
       title: 'Leads',
       url: '/leads'

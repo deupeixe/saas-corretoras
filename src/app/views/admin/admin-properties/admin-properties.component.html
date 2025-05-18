@@ -51,7 +51,7 @@
           <mat-icon>edit</mat-icon>
         </button>
 
-        <button mat-icon-button aria-label="delete">
+        <button (click)="removeItem(element.id)" mat-icon-button aria-label="delete">
           <mat-icon>delete</mat-icon>
         </button>
       </div>

@@ -1,5 +1,5 @@
 import { computed, inject, Injectable, signal } from '@angular/core';
-import { collection, CollectionReference, doc, Firestore, getDocs, setDoc, updateDoc } from '@angular/fire/firestore';
+import { collection, CollectionReference, deleteDoc, doc, Firestore, getDocs, setDoc, updateDoc } from '@angular/fire/firestore';
 import { firstValueFrom, from, mergeMap, Observable, tap, toArray } from 'rxjs';
 import { IResponse } from '../models/response';
 import { paramsJsonParse } from '../utils/functions-utils';
@@ -111,6 +111,29 @@ export class PropertyStoreService {
         })
       )
   )
+  }
+
+  actionRemove(id: string){
+    return new Promise<IResponse>(resolve => {
+
+      let response: IResponse = {error: true, results: undefined, message: 'Ocorreu um error ao remover item.'}
+      this.#loading.set(true);
+      const ref = doc(this.#collectionRef, id);
+
+      deleteDoc(ref)
+      .then(res => {
+        this.#loading.set(false);
+        response = { error: false, results: {id}, message: 'Item deletado com sucesso!' };
+        this.#state.update((current) => current.filter(elem => elem.id !== id))
+        resolve(response)
+      }).catch(err => {
+        this.#loading.set(false);
+        console.error(err);
+        resolve(response)
+      })
+
+
+    })
   }
 
   #extractOne(slug: string){
