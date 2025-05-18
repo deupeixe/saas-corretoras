@@ -17,6 +17,16 @@
     <div class="description" [innerHTML]="property?.descricao"></div>
 
     <div class="complementations-box-mobile">
+      @if(property?.tour_virtual){
+        <div class="youtube-box">
+          <youtube-player
+            [videoId]="property?.tour_virtual | getIdYoutube"
+            width="250"
+            >
+          </youtube-player>
+
+        </div>
+      }
       <p class="label">Localização</p>
       <div class="location">
         <h4>{{ property?.end_bairro }}</h4>
@@ -50,6 +60,17 @@
 
       <button (click)="openLeadForm()" mat-button>Agendar visita</button>
     </div>
+
+    @if(property?.tour_virtual){
+      <div class="youtube-box">
+        <youtube-player
+          [videoId]="property?.tour_virtual | getIdYoutube"
+          width="250"
+          >
+        </youtube-player>
+
+      </div>
+    }
 
     <div class="complementations-box-desktop">
       <p class="label">Localização</p>

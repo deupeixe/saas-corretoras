@@ -20,7 +20,7 @@ export class SlidePropertyDetailsComponent implements OnInit {
   dialog = inject(MatDialog);
   platformId = inject(PLATFORM_ID);
 
-  pageWidth: number = 1000;
+  pageWidth: number = 768;
 
   loading = {
     property: false,
@@ -41,7 +41,10 @@ export class SlidePropertyDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    if(isPlatformBrowser(this.platformId)){
+      this.pageWidth = window.innerWidth;
+      console.log(this.pageWidth)
+    }
   }
 
   openMedia(index: number){

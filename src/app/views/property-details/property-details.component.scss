@@ -64,6 +64,12 @@
           font-size: 12px;
         }
       }
+      .youtube-box{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin: 30px 10px;
+      }
     }
   }
 
@@ -115,6 +121,8 @@
     }
 
   }
+
+
 
   app-action-01, app-subscribe{
     width: 100%;
@@ -173,6 +181,12 @@
           margin-top: 30px;
           border-radius: 5px;
           padding: 20px;
+
+          .youtube-box{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+          }
 
           .label{
             color: #999898;

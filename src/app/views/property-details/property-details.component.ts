@@ -11,6 +11,8 @@ import { SubscribeComponent } from '../../components/subscribe/subscribe.compone
 import { ActionSocialComponent } from '../../components/action-social/action-social.component';
 import { UtilsService } from '../../services/utils.service';
 import { EMeta } from '../../enums/meta';
+import { YOUTUBE_PLAYER_CONFIG, YouTubePlayerModule } from '@angular/youtube-player';
+import { GetIdYoutubePipe } from '../../pipes/get-id-youtube.pipe';
 @Component({
   selector: 'app-property-details',
   imports: [
@@ -19,8 +21,17 @@ import { EMeta } from '../../enums/meta';
     CurrencyPipe,
     Action01Component,
     SubscribeComponent,
-    ActionSocialComponent
+    ActionSocialComponent,
+    YouTubePlayerModule,
+    GetIdYoutubePipe
   ],
+  providers: [{
+    provide: YOUTUBE_PLAYER_CONFIG,
+    useValue: {
+      disablePlaceholder: true,
+      loadApi: true
+    }
+  }],
   templateUrl: './property-details.component.html',
   styleUrl: './property-details.component.scss'
 })
@@ -44,6 +55,7 @@ export class PropertyDetailsComponent {
     this.property = this.propertyStore.select.one(slug)();
     this.utils.setTitle(`Telma Monteiro - ${slug}`);
     this.utils.updateMeta(EMeta.KEY_DEFAULT, slug);
+    console.log(this.property)
   }
 
   openLeadForm(){
