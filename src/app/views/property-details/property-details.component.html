@@ -11,7 +11,7 @@
         </span>
         <p class="value">{{property?.preco | currency: 'BRL':'symbol-narrow':'1.0-0'}}</p>
 
-        <button mat-button>Agendar visita</button>
+        <button (click)="openLeadForm()" mat-button>Agendar visita</button>
       </div>
       <div class="description" [innerHTML]="property?.descricao"></div>
 
@@ -47,7 +47,7 @@
         </span>
         <p class="value">{{property?.preco | currency: 'BRL':'symbol-narrow':'1.0-0'}}</p>
 
-        <button mat-button>Agendar visita</button>
+        <button (click)="openLeadForm()" mat-button>Agendar visita</button>
 
       </div>
 

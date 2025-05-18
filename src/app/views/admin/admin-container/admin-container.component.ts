@@ -1,18 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
 import { RouterModule, RouterOutlet } from '@angular/router';
+import { LeadStoreService } from '../../../store/lead-store.service';
+
 
 @Component({
   selector: 'app-admin-container',
   imports: [
     MatButtonModule,
     RouterOutlet,
-    RouterModule
+    RouterModule,
+
   ],
   templateUrl: './admin-container.component.html',
   styleUrl: './admin-container.component.scss'
 })
-export class AdminContainerComponent {
+export class AdminContainerComponent implements OnInit {
+
+  readonly leadStore = inject(LeadStoreService);
+
 
   nav = [
     {
@@ -23,9 +29,12 @@ export class AdminContainerComponent {
       url: '/admin/imoveis'
     },    {
       title: 'Leads',
-      url: '/leads'
+      url: '/admin/leads'
     },
+  ];
 
-  ]
+  ngOnInit(): void {
+    this.leadStore.actionLoadAll();
+  }
 
 }

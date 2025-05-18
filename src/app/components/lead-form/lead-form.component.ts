@@ -1,38 +1,45 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import {
   FormBuilder,
   FormsModule,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
+import { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';
 import { LeadStoreService } from '../../store/lead-store.service';
-import { NgxMaskDirective } from 'ngx-mask';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { faWhatsapp, faInstagram, faFacebook, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook, faInstagram, faWhatsapp, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { environment } from '../../../environments/environment.development';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
-  selector: 'app-subscribe',
+  selector: 'app-lead-form',
   imports: [
-    MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
+    MatButtonToggleModule,
     FormsModule,
     ReactiveFormsModule,
+    MatButtonModule,
+    MatDialogModule,
     NgxMaskDirective,
     MatProgressBarModule,
     FontAwesomeModule
   ],
-  templateUrl: './subscribe.component.html',
-  styleUrl: './subscribe.component.scss',
+  templateUrl: './lead-form.component.html',
+  styleUrl: './lead-form.component.scss',
 })
-export class SubscribeComponent {
+export class LeadFormComponent implements OnInit {
   #formBuilder = inject(FormBuilder);
+  readonly data = inject(MAT_DIALOG_DATA);
   readonly leadStore = inject(LeadStoreService);
+
+  templateRef = 'default';
 
   form = this.#formBuilder.group({
     statu: ['aberto'],
@@ -42,11 +49,9 @@ export class SubscribeComponent {
     turno: ['ambos'],
     semana: ['ambos'],
     data: [''],
-    item: [{ id: '', titulo: 'Pagina principal' }],
-    historico: this.#formBuilder.array([]),
+    item: [''],
+    historico: this.#formBuilder.array([])
   });
-
-  templateRef = 'default';
 
   social = [
     {
@@ -71,7 +76,16 @@ export class SubscribeComponent {
     },
   ];
 
+  ngOnInit(): void {
+    const item: any = {id: this.data.property.id, titulo: this.data.property.titulo } ;
+    this.form.patchValue({
+      data: new Date().toISOString(),
+      item,
+    });
+  }
+
   async save() {
+    console.log(this.form.invalid);
     if (
       this.form.invalid ||
       (!this.form.value.fone && !this.form.value.email)
@@ -80,5 +94,6 @@ export class SubscribeComponent {
     }
     await this.leadStore.actionSave(this.form.value);
     this.templateRef = 'finish';
+
   }
 }

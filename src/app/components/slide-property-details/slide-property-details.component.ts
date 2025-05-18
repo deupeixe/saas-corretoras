@@ -47,7 +47,6 @@ export class SlidePropertyDetailsComponent implements OnInit {
         select: index
       },
     });
-
   }
 
 }

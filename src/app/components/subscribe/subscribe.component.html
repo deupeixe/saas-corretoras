@@ -1,19 +1,47 @@
 
-<div class="label-box">
-  <span>Se preferir deixe seu email</span>
 
-</div>
+@if(templateRef === 'finish'){
+  <h3>Contato salvo com sucesso!</h3>
+  <p>Entrarei em contato com você o mais breve possível.</p>
+  <p>Sinta-se à vontade para continuar navegando pelo site ou me acompanhar pelas redes socias</p>
+  <nav>
+    @for (item of social; track $index) {
+    <a [href]="item.link" target="_blank" class="anim-link">
+      <fa-icon [icon]="item.icon"></fa-icon>
+    </a>
+    }
+  </nav>
 
-<div class="form-email-box">
-  <mat-form-field appearance="outline">
-    <mat-label>Nome</mat-label>
-    <input matInput placeholder="Ex. Pizza" value="Sushi">
-  </mat-form-field>
-  <mat-form-field appearance="outline">
-    <mat-label>Email</mat-label>
-    <input matInput placeholder="Ex. Pizza" value="Sushi">
-  </mat-form-field>
-  <button mat-raised-button color="primary">
-    Enviar
-  </button>
-</div>
+
+}@else {
+  <div class="label-box">
+    <span>Se preferir deixe seu contato</span>
+  </div>
+
+  <form class="form-email-box" (ngSubmit)="save()" [formGroup]="form">
+    <mat-form-field appearance="outline">
+      <mat-label>Nome</mat-label>
+      <input matInput formControlName="nome" name="nome" autocomplete="given-name">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Telefone</mat-label>
+      <input matInput formControlName="fone" name="telefone" autocomplete="tel" mask="(00)0000000000||(00)000000000||(00)00000000||(00)00000000">
+    </mat-form-field>
+    <span>Ou</span>
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" name="email" autocomplete="email">
+    </mat-form-field>
+    <button type="submit" mat-raised-button color="primary">
+      Salvar
+    </button>
+  </form>
+  @if(leadStore.select.loading()){
+    <p>Salvando...</p>
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  }
+
+}
+
+
+

@@ -1,0 +1,99 @@
+<h2 mat-dialog-title>
+  @if(data?.property){
+    Editar
+  }@else {
+    Adicionar
+  }
+</h2>
+<mat-dialog-content>
+
+  <section>
+    <form [formGroup]="form" (submit)="save()">
+      <mat-form-field>
+        <mat-label>Seu nome</mat-label>
+        <input formControlName="nome" matInput />
+      </mat-form-field>
+
+      <div class="contacts">
+        <mat-form-field>
+          <mat-label>Telefone | Whatsapp</mat-label>
+          <input
+            formControlName="fone"
+            matInput
+            type="text"
+            mask="(00)0000000000||(00)000000000||(00)00000000||(00)00000000"
+          />
+        </mat-form-field>
+        <span>OU</span>
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input formControlName="email" matInput />
+        </mat-form-field>
+      </div>
+
+      <p>Melhor período para contato:</p>
+      <div class="opts">
+        <mat-button-toggle-group
+          formControlName="turno"
+          name="turno"
+          aria-label="turno"
+        >
+          <mat-button-toggle value="manha">Manhã</mat-button-toggle>
+          <mat-button-toggle value="tarde">Tarde</mat-button-toggle>
+          <mat-button-toggle value="noite">Noite</mat-button-toggle>
+          <mat-button-toggle value="ambos">Ambos</mat-button-toggle>
+        </mat-button-toggle-group>
+        <mat-button-toggle-group
+          formControlName="semana"
+          name="semana"
+          aria-label="semana"
+        >
+          <mat-button-toggle value="dias-uteis">Dias úteis</mat-button-toggle>
+          <mat-button-toggle value="finais-de-semana"
+            >Finais de semana</mat-button-toggle
+          >
+          <mat-button-toggle value="ambos">Ambos</mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+
+      <p>Histórico de retorno</p>
+      <div class="historico" formArrayName="historico">
+        @for (group of historicoCtrl.controls; track $index) {
+          <div class="group-item" [formGroupName]="$index">
+            <mat-form-field>
+              <mat-label>Data</mat-label>
+              <input matInput [matDatepicker]="datepicker" formControlName="data" >
+              <mat-datepicker #datepicker/>
+              <mat-datepicker-toggle [for]="datepicker" matSuffix/>
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>horário</mat-label>
+              <input matInput
+                [matTimepicker]="timepicker" formControlName="horario">
+              <mat-timepicker #timepicker/>
+              <mat-timepicker-toggle [for]="timepicker" matSuffix/>
+            </mat-form-field>
+            <mat-form-field class="obs">
+              <mat-label>Observação</mat-label>
+              <input matInput formControlName="observacao"/>
+            </mat-form-field>
+          </div>
+
+        }
+
+      </div>
+      <button (click)="addCtrl()" type="button" mat-raised-button class="btn-historico">Adicionar historico</button>
+
+      @if(leadStore.select.loading()){
+      <p>Salvando...</p>
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+      }@else {
+      <div class="btn-save-box">
+        <button mat-raised-button class="btn-save" type="submit">Salvar</button>
+      </div>
+      }
+    </form>
+
+  </section>
+</mat-dialog-content>

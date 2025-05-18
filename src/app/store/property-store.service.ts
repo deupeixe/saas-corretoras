@@ -1,9 +1,9 @@
 import { computed, inject, Injectable, signal } from '@angular/core';
 import { collection, CollectionReference, deleteDoc, doc, Firestore, getDocs, setDoc, updateDoc } from '@angular/fire/firestore';
-import { firstValueFrom, from, mergeMap, Observable, tap, toArray } from 'rxjs';
+import { firstValueFrom, Observable, tap } from 'rxjs';
 import { IResponse } from '../models/response';
 import { paramsJsonParse } from '../utils/functions-utils';
-import { UploadService } from '../services/upload.service';
+
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,6 @@ export class PropertyStoreService {
 
   #firestore = inject(Firestore);
   #collectionRef: CollectionReference  = collection(this.#firestore, 'anuncios');
-  #upload = inject(UploadService)
 
   #state = signal<any[]>([]);
   #loading = signal<boolean>(false);
@@ -43,22 +42,10 @@ export class PropertyStoreService {
           await results.push(doc.data())
         });
 
-        from(results).pipe(
-          mergeMap(async elem => {
-            let fotos = elem['fotos'] ?? [];
-            let thumb = elem?.thumb ? elem.thumb : fotos[0];
-            return {...elem, thumb}
-          }),
-          toArray()
-        ).subscribe((res) => {
-          results = res;
-          response = {error: false, results, message: 'Sucesso ao obter itens.'}
-          this.#setInState(response)
-          this.#loading.set(false);
-          resolve(response)
-        })
-
-
+        response = {error: false, results, message: 'Sucesso ao obter itens.'}
+        this.#setInState(response)
+        this.#loading.set(false);
+        resolve(response)
       }).catch(() => {
         this.#loading.set(false);
         resolve(response)

@@ -1,0 +1,83 @@
+<section>
+  <button class="btn-close" mat-button mat-dialog-close>X</button>
+
+  <img src="" alt="">
+
+  @if(templateRef === 'finish'){
+    <h3>Contato salvo com sucesso!</h3>
+    <p>Entrarei em contato com você o mais breve possível.</p>
+    <p>Sinta-se à vontade para continuar navegando pelo site ou me acompanhar pelas redes socias</p>
+    <nav>
+      @for (item of social; track $index) {
+      <a [href]="item.link" target="_blank" class="anim-link">
+        <fa-icon [icon]="item.icon"></fa-icon>
+      </a>
+      }
+    </nav>
+
+
+  }@else {
+
+  <h4>Obrigado pelo interesse!</h4>
+  <p>Preencha os seguintes campos e entrarei em contato com você.</p>
+
+  <form [formGroup]="form" (submit)="save()">
+    <mat-form-field>
+      <mat-label>Seu nome</mat-label>
+      <input formControlName="nome" matInput />
+    </mat-form-field>
+
+    <div class="contacts">
+      <mat-form-field>
+        <mat-label>Telefone | Whatsapp</mat-label>
+        <input
+          formControlName="fone"
+          matInput
+          type="text"
+          mask="(00)0000000000||(00)000000000||(00)00000000||(00)00000000"
+        />
+      </mat-form-field>
+      <span>OU</span>
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input formControlName="email" matInput />
+      </mat-form-field>
+    </div>
+
+    <p>Melhor período para contato:</p>
+    <div class="opts">
+      <mat-button-toggle-group
+        formControlName="turno"
+        name="turno"
+        aria-label="turno"
+      >
+        <mat-button-toggle value="manha">Manhã</mat-button-toggle>
+        <mat-button-toggle value="tarde">Tarde</mat-button-toggle>
+        <mat-button-toggle value="noite">Noite</mat-button-toggle>
+        <mat-button-toggle value="ambos">Ambos</mat-button-toggle>
+      </mat-button-toggle-group>
+      <mat-button-toggle-group
+        formControlName="semana"
+        name="semana"
+        aria-label="semana"
+      >
+        <mat-button-toggle value="dias-uteis">Dias úteis</mat-button-toggle>
+        <mat-button-toggle value="finais-de-semana"
+          >Finais de semana</mat-button-toggle
+        >
+        <mat-button-toggle value="ambos">Ambos</mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+
+    @if(leadStore.select.loading()){
+    <p>Salvando...</p>
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    }@else {
+    <div class="btn-save-box">
+      <button mat-raised-button class="btn-save">Salvar</button>
+    </div>
+    }
+  </form>
+
+  }
+</section>

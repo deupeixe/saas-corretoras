@@ -36,7 +36,7 @@ import { PropertyEditorComponent } from '../property-editor/property-editor.comp
   templateUrl: './admin-properties.component.html',
   styleUrl: './admin-properties.component.scss',
 })
-export class AdminPropertiesComponent implements AfterViewInit {
+export class AdminPropertiesComponent {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
@@ -58,11 +58,6 @@ export class AdminPropertiesComponent implements AfterViewInit {
         this.setTable();
       }
     });
-  }
-
-  ngAfterViewInit() {
-    // this.dataSource.paginator = this.paginator;
-    // this.dataSource.sort = this.sort;
   }
 
   setTable() {
