@@ -14,6 +14,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { faWhatsapp, faInstagram, faFacebook, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { environment } from '../../../environments/environment.development';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { UtilsService } from '../../services/utils.service';
 
 @Component({
   selector: 'app-subscribe',
@@ -33,6 +34,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 export class SubscribeComponent {
   #formBuilder = inject(FormBuilder);
   readonly leadStore = inject(LeadStoreService);
+  readonly utils = inject(UtilsService);
 
   form = this.#formBuilder.group({
     statu: ['aberto'],
@@ -72,6 +74,7 @@ export class SubscribeComponent {
   ];
 
   async save() {
+    this.setLog();
     if (
       this.form.invalid ||
       (!this.form.value.fone && !this.form.value.email)
@@ -80,5 +83,9 @@ export class SubscribeComponent {
     }
     await this.leadStore.actionSave(this.form.value);
     this.templateRef = 'finish';
+  }
+
+  setLog(){
+    this.utils.setLog('open_formulario', {origem: 'subscribe home'});
   }
 }

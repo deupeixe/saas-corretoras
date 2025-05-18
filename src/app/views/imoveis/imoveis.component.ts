@@ -13,6 +13,8 @@ import { faExpand, faBath, faWarehouse, faBed, faCar } from '@fortawesome/free-s
 import { PropertyStoreService } from '../../store/property-store.service';
 import { PropertyEditorComponent } from '../admin/property-editor/property-editor.component';
 import { RouterLink } from '@angular/router';
+import { UtilsService } from '../../services/utils.service';
+import { EMeta } from '../../enums/meta';
 
 @Component({
   selector: 'app-imoveis',
@@ -38,6 +40,7 @@ export class ImoveisComponent {
 
   readonly propertyStore = inject(PropertyStoreService);
   readonly dialog = inject(MatDialog);
+  readonly utils = inject(UtilsService);
 
   displayedColumns: string[] = ['thumb', 'title'];
   dataSource = new MatTableDataSource([] as any[]);
@@ -54,6 +57,11 @@ export class ImoveisComponent {
         this.setTable();
       }
     });
+  }
+
+  ngOnInit(): void {
+    this.utils.setTitle('Telma Monteiro - Ímoveis no Maranhão, São luis e regiões');
+    this.utils.updateMeta(EMeta.DESC_HOME, EMeta.KEY_SEARCH);
   }
 
   setTable() {

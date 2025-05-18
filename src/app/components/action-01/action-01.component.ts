@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { environment } from '../../../environments/environment.development';
+import { UtilsService } from '../../services/utils.service';
 
 @Component({
   selector: 'app-action-01',
@@ -16,6 +17,12 @@ import { environment } from '../../../environments/environment.development';
 })
 export class Action01Component {
 
+  readonly utils = inject(UtilsService);
+
   whatsapp = environment.whatsapp.link;
+
+  setLog(){
+    this.utils.setLog('open_whatsapp', {origem: 'Fale comigo pelo WhatsApp'});
+  }
 
 }

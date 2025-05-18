@@ -1,0 +1,16 @@
+:host{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  section{
+    min-height: 60vh;
+    display: flex;flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    h4{
+      font-size: 25px;
+      color: var(--color-3);
+    }
+  }
+}

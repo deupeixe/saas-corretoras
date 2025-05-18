@@ -1,9 +1,11 @@
 import { Component, inject } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { PropertyStoreService } from './store/property-store.service';
 import { FooterComponent } from './components/footer/footer.component';
 import { register } from 'swiper/element/bundle';
+import { filter } from 'rxjs';
+import { UtilsService } from './services/utils.service';
 
 register();
 @Component({
@@ -20,9 +22,18 @@ export class AppComponent {
   title = 'telmamonteiroSite';
 
   propertyStore = inject(PropertyStoreService);
+  readonly router = inject(Router);
+  readonly utils = inject(UtilsService);
 
   constructor(){
     this.propertyStore.actionLoadAll();
+  }
 
+  ngOnInit(): void {
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe((event: NavigationEnd) => {
+        this.utils.setLog('open_page', {origem: event.urlAfterRedirects})
+      });
   }
 }

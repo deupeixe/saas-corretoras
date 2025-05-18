@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { NotfoundComponent } from './views/notfound/notfound.component';
 
 export const routes: Routes = [
   {
@@ -42,5 +43,6 @@ export const routes: Routes = [
         loadComponent: () => import('./views/admin/admin-leads/admin-leads.component').then(c => c.AdminLeadsComponent),
       },
     ]
-  }
+  },
+  { path: '**', component: NotfoundComponent }
 ];

@@ -1,16 +1,20 @@
 import { isPlatformBrowser } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, PLATFORM_ID } from '@angular/core';
+import { Analytics, logEvent } from '@angular/fire/analytics';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
+import { Title } from '@angular/platform-browser';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UtilsService {
-   #http = inject(HttpClient)
-   #snackBar = inject(MatSnackBar)
+   #http = inject(HttpClient);
+   #snackBar = inject(MatSnackBar);
+   readonly analytics = inject(Analytics);
    platformId = inject(PLATFORM_ID);
+   title = inject(Title);
 
   url: string = '/estados-cidades-br.json';
   widthSize = new BehaviorSubject<number>(0);
@@ -104,6 +108,31 @@ export class UtilsService {
   constructor(
 
   ) {this.generateNums() }
+
+  setLog(name: string = 'view_item', params: any){
+    logEvent(this.analytics, name, params);
+  }
+
+  setTitle(value: string){
+    if(isPlatformBrowser(this.platformId)){
+      this.title.setTitle(value)
+    }
+  }
+
+  updateMeta(description: string, keys: string) {
+    if(isPlatformBrowser(this.platformId)){
+      const metaTags = document.head.querySelectorAll('meta');
+      metaTags.forEach(tag => {
+        if (tag.name === 'description') {
+          tag.setAttribute('content', description)
+        }
+        if (tag.name === 'keywords') {
+          tag.setAttribute('content', keys)
+        }
+      })
+    }
+
+  }
 
   generateNums(){
     for (let index = 0; index <= 100; index++) {
