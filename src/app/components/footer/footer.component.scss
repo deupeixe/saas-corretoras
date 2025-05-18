@@ -117,6 +117,7 @@ footer::after {
     flex-direction: column;
     justify-content: center;
     .box{
+      box-sizing: border-box;
       width: 90%;
       padding: 30px;
 

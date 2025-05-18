@@ -46,7 +46,7 @@ export class FooterComponent {
     },
     {
       title: 'Serviços e consultoria',
-      link: '',
+      link: '/servicos',
     },
     {
       title: 'Meus Ímoveis',

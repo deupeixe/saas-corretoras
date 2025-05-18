@@ -1,0 +1,101 @@
+:host{
+  width: 100%;
+  box-sizing: content-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  // padding: 20px;
+
+  section{
+    padding: 70px;
+    box-sizing: content-box;
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    .foto-box{
+      min-width: 200px;
+    }
+    .info{
+      flex: 1;
+
+      .groups{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 20px;
+        .group{
+          flex: 1;
+          border: 1px solid var(--color-2);
+          padding: 30px;
+          min-width: 300px;
+          h3{
+            font-size: 25px;
+            color: var(--color-2);
+          }
+          p{
+            color: var(--color-3);
+            line-height: 1.5;
+          }
+        }
+
+      }
+    }
+    .btn-whatsapp{
+      margin: 30px 0px;
+      background-color: var(--color-2);
+      color: var(--color-l1);
+      width: 100%;
+      border-radius: 5px;
+    }
+    h2{
+      font-size: 30px;
+      color: var(--color-1);
+      font-weight: 200;
+    }
+
+
+  }
+
+  app-action-social{
+    margin-bottom: 40px;
+    box-sizing: border-box;
+  }
+}
+
+
+@media (max-width: 768px){
+  :host{
+    margin-top: 50px;
+
+    section{
+      width: 98%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      padding: 30px;
+
+      .foto-box{
+        min-width: 100px;
+        img{
+          width: 100%;
+        }
+      }
+      h3{
+        font-size: 30px;
+        color: var(--color-1);
+        font-weight: 200;
+      }
+
+      ul{
+        li{
+          color: var(--color-2);
+        }
+      }
+    }
+  }
+}

@@ -14,6 +14,10 @@ export const routes: Routes = [
     loadComponent: () => import('./views/quem-sou/quem-sou.component').then(c => c.QuemSouComponent)
   },
   {
+    path: 'servicos',
+    loadComponent: () => import('./views/servicos/servicos.component').then(c => c.ServicosComponent)
+  },
+  {
     path: 'politica-de-privacidade',
     loadComponent: () => import('./views/politica-privacidade/politica-privacidade.component').then(c => c.PoliticaPrivacidadeComponent)
   },
