@@ -6,6 +6,10 @@ export const routes: Routes = [
     loadComponent: () => import('./views/home/home.component').then(c => c.HomeComponent)
   },
   {
+    path: 'imoveis-no-maranhao',
+    loadComponent: () => import('./views/imoveis/imoveis.component').then(c => c.ImoveisComponent)
+  },
+  {
     path: 'imovel-no-maranhao/:slug',
     loadComponent: () => import('./views/property-details/property-details.component').then(c => c.PropertyDetailsComponent)
   },

@@ -71,10 +71,18 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     filled-container-color: var(--color-4),
     filled-label-text-color: var(--color-3)
   ));
+
+  @include mat.menu-overrides((
+    item-label-text-color: var(--color-3),
+    item-icon-color: var(--color-1),
+    container-color: var(--color-l1),
+    item-spacing: 30px,
+  ));
 }
 .mat-mdc-dialog-content{
   max-height: 80vh !important;
 }
+
 app-property-details{
   @include mat.button-overrides((
     text-label-text-color: rgb(187, 255, 0),

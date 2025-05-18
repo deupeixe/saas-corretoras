@@ -1,10 +1,12 @@
 import { NgStyle } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-breadcrumb',
   imports: [
-    NgStyle
+    NgStyle,
+    RouterLink
   ],
   templateUrl: './breadcrumb.component.html',
   styleUrl: './breadcrumb.component.scss'

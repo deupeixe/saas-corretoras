@@ -1,8 +1,18 @@
 <header class="header-box">
   <nav class="nav-menu">
-    <a href="http://" class="toggle">
+    <a href="javascript:void(0)" mat-button class="toggle" [matMenuTriggerFor]="menu">
       <fa-icon [icon]="faBars"></fa-icon>
     </a>
+    <mat-menu #menu="matMenu">
+      @for (item of sideMenu; track $index) {
+        <button [routerLink]="item.link" mat-menu-item>
+          <mat-icon>dialpad</mat-icon>
+          <span>{{item.text}}</span>
+        </button>
+      }
+
+    </mat-menu>
+
     <ul class="menu-items">
       <li><a routerLink="/">Home</a></li>
       <li><a routerLink="/imoveis-no-maranhao">Ímoveis</a></li>

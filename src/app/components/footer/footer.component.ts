@@ -42,7 +42,7 @@ export class FooterComponent {
   menu = [
     {
       title: 'Quem sou',
-      link: '',
+      link: '/quem-sou',
     },
     {
       title: 'Serviços e consultoria',
@@ -50,7 +50,7 @@ export class FooterComponent {
     },
     {
       title: 'Meus Ímoveis',
-      link: '',
+      link: '/imoveis-no-maranhao',
     },
     {
       title: 'Política de privacidade',
