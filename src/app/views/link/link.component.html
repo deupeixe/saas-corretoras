@@ -1,0 +1,15 @@
+<section>
+  <h3>Prazer, sou Telma Monteiro</h3>
+  <a (click)="setLog()" [href]="whatsapp" target="_blank"  mat-raised-button color="primary" class="btn-box">
+    Fale comigo no Whatsapp
+  </a>
+  <a (click)="setLog()" [href]="whatsapp" target="_blank"  mat-raised-button color="primary" class="btn-box">
+    Confira Meus ímoveis
+  </a>
+
+  <nav>
+    @for (item of contacts; track $index) {
+    <a [href]="item.link" target="_blank" class="anim-link"> <span><fa-icon [icon]="item.icon"></fa-icon></span>  {{ item.title }} </a>
+    }
+  </nav>
+</section>

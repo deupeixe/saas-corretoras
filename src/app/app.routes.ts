@@ -7,6 +7,10 @@ export const routes: Routes = [
     loadComponent: () => import('./views/home/home.component').then(c => c.HomeComponent)
   },
   {
+    path: 'links',
+    loadComponent: () => import('./views/link/link.component').then(c => c.LinkComponent)
+  },
+  {
     path: 'imoveis-no-maranhao',
     loadComponent: () => import('./views/imoveis/imoveis.component').then(c => c.ImoveisComponent)
   },

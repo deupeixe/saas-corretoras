@@ -75,9 +75,15 @@ export class HeaderComponent {
       link: '/quem-sou',
     },
     {
+      text: 'Meus Links',
+      icon: faWhatsapp,
+      link: '/links',
+    },
+    {
       text: 'Política de Privacidade',
       icon: faWhatsapp,
       link: '/politica-de-privacidade',
     },
+
   ];
 }
