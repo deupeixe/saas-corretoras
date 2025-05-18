@@ -1,9 +1,10 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, HostListener, inject, Input, OnInit } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, HostListener, inject, Input, OnInit, PLATFORM_ID } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { FullscreenMediaComponent } from '../fullscreen-media/fullscreen-media.component';
 import { UploadService } from '../../services/upload.service';
 import { from, mergeMap, toArray } from 'rxjs';
 import { sortArray } from '../../utils/functions-utils';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-slide-property-details',
@@ -17,9 +18,9 @@ export class SlidePropertyDetailsComponent implements OnInit {
   @Input()property: any;
 
   dialog = inject(MatDialog);
-  #upload = inject(UploadService);
+  platformId = inject(PLATFORM_ID);
 
-  pageWidth: number = window.innerWidth;
+  pageWidth: number = 1000;
 
   loading = {
     property: false,
@@ -28,9 +29,15 @@ export class SlidePropertyDetailsComponent implements OnInit {
 
   images: any = [];
 
+  constructor(){
+  }
+
   @HostListener('window:resize', ['$event'])
   onResize(event: Event) {
-    this.pageWidth = window.innerWidth;
+    if(isPlatformBrowser(this.platformId)){
+      this.pageWidth = window.innerWidth;
+    }
+
   }
 
   ngOnInit(): void {

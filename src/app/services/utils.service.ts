@@ -106,11 +106,12 @@ export class UtilsService {
 
 
   constructor(
-
   ) {this.generateNums() }
 
   setLog(name: string = 'view_item', params: any){
-    logEvent(this.analytics, name, params);
+    if (isPlatformBrowser(this.platformId)) {
+      logEvent(this.analytics, name, params);
+    }
   }
 
   setTitle(value: string){

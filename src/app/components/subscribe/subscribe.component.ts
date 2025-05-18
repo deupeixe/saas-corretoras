@@ -43,7 +43,7 @@ export class SubscribeComponent {
     email: ['', Validators.email],
     turno: ['ambos'],
     semana: ['ambos'],
-    data: [''],
+    data: [new Date().toISOString()],
     item: [{ id: '', titulo: 'Pagina principal' }],
     historico: this.#formBuilder.array([]),
   });

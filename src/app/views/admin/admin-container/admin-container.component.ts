@@ -2,6 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { LeadStoreService } from '../../../store/lead-store.service';
+import { AuthStoreService } from '../../../store/auth-store.service';
 
 
 @Component({
@@ -18,6 +19,7 @@ import { LeadStoreService } from '../../../store/lead-store.service';
 export class AdminContainerComponent implements OnInit {
 
   readonly leadStore = inject(LeadStoreService);
+  readonly authStore = inject(AuthStoreService);
 
 
   nav = [

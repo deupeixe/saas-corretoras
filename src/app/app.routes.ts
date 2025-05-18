@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { NotfoundComponent } from './views/notfound/notfound.component';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -32,6 +33,7 @@ export const routes: Routes = [
   },
   {
     path: 'admin',
+    canActivate: [authGuard],
     loadComponent: () => import('./views/admin/admin-container/admin-container.component').then(c => c.AdminContainerComponent),
     children: [
       {
@@ -47,6 +49,10 @@ export const routes: Routes = [
         loadComponent: () => import('./views/admin/admin-leads/admin-leads.component').then(c => c.AdminLeadsComponent),
       },
     ]
+  },
+  {
+    path: 'admin/login',
+    loadComponent: () => import('./views/admin/admin-login/admin-login.component').then(c => c.AdminLoginComponent),
   },
   { path: '**', component: NotfoundComponent }
 ];
