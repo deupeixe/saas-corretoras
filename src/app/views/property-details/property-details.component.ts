@@ -8,6 +8,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { LeadFormComponent } from '../../components/lead-form/lead-form.component';
 import { Action01Component } from '../../components/action-01/action-01.component';
 import { SubscribeComponent } from '../../components/subscribe/subscribe.component';
+import { ActionSocialComponent } from '../../components/action-social/action-social.component';
 @Component({
   selector: 'app-property-details',
   imports: [
@@ -15,7 +16,8 @@ import { SubscribeComponent } from '../../components/subscribe/subscribe.compone
     MatButtonModule,
     CurrencyPipe,
     Action01Component,
-    SubscribeComponent
+    SubscribeComponent,
+    ActionSocialComponent
   ],
   templateUrl: './property-details.component.html',
   styleUrl: './property-details.component.scss'

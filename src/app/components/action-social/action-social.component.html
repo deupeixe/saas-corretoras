@@ -1,0 +1,10 @@
+<section>
+  <h4 [ngClass]="{'border-top': !hideBorder}">Me acompanhe nas redes sociais!</h4>
+  <nav>
+    @for (item of social; track $index) {
+    <a [href]="item.link" target="_blank" class="anim-link">
+      <fa-icon [icon]="item.icon"></fa-icon>
+    </a>
+    }
+  </nav>
+</section>

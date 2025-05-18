@@ -1,79 +1,76 @@
-
 @if(property){
-  <app-slide-property-details [property]="property" />
-  <section class="details-box">
-    <div class="details-body">
-      <h1 class="title">{{property.titulo}}</h1>
-      <div class="price-box-mobile">
-        <p>Preço para:</p>
-        <span class="category">
-          {{property?.categoria}}
-        </span>
-        <p class="value">{{property?.preco | currency: 'BRL':'symbol-narrow':'1.0-0'}}</p>
+<app-slide-property-details [property]="property" />
+<section class="details-box">
+  <div class="details-body">
+    <h1 class="title">{{ property.titulo }}</h1>
+    <div class="price-box-mobile">
+      <p>Preço para:</p>
+      <span class="category">
+        {{ property?.categoria }}
+      </span>
+      <p class="value">
+        {{ property?.preco | currency : "BRL" : "symbol-narrow" : "1.0-0" }}
+      </p>
 
-        <button (click)="openLeadForm()" mat-button>Agendar visita</button>
-      </div>
-      <div class="description" [innerHTML]="property?.descricao"></div>
-
-      <div class="complementations-box-mobile">
-        <p class="label">Localização</p>
-        <div class="location">
-          <h4>{{property?.end_bairro}}</h4>
-          <h5>{{property?.end_cidade}}/{{property?.end_uf}}</h5>
-        </div>
-
-        <p class="label">Contém </p>
-        <div class="infos">
-          @for (item of property?.dets_imovel; track $index) {
-            <span>{{item}}</span>
-          }
-          @for (item of property?.dets_area_comum; track $index) {
-            <span>{{item}}</span>
-          }
-        </div>
-        <div class="infos">
-          @for (item of property?.dets_outros; track $index) {
-            <span>{{item}}</span>
-          }
-        </div>
-      </div>
-
+      <button (click)="openLeadForm()" mat-button>Agendar visita</button>
     </div>
-    <div class="details-side">
-      <div class="price-box-desktop">
-        <p>Preço para:</p>
-        <span class="category">
-          {{property?.categoria}}
-        </span>
-        <p class="value">{{property?.preco | currency: 'BRL':'symbol-narrow':'1.0-0'}}</p>
+    <div class="description" [innerHTML]="property?.descricao"></div>
 
-        <button (click)="openLeadForm()" mat-button>Agendar visita</button>
-
+    <div class="complementations-box-mobile">
+      <p class="label">Localização</p>
+      <div class="location">
+        <h4>{{ property?.end_bairro }}</h4>
+        <h5>{{ property?.end_cidade }}/{{ property?.end_uf }}</h5>
       </div>
 
-      <div class="complementations-box-desktop">
-        <p class="label">Localização</p>
-        <div class="location">
-          <h4>{{property?.end_bairro}}</h4>
-          <h5>{{property?.end_cidade}}/{{property?.end_uf}}</h5>
-        </div>
-
-        <p class="label">Contém </p>
-        <div class="infos">
-          @for (item of property?.dets_imovel; track $index) {
-            <span>{{item}}</span>
-          }
-          @for (item of property?.dets_area_comum; track $index) {
-            <span>{{item}}</span>
-          }
-        </div>
-
+      <p class="label">Contém</p>
+      <div class="infos">
+        @for (item of property?.dets_imovel; track $index) {
+        <span>{{ item }}</span>
+        } @for (item of property?.dets_area_comum; track $index) {
+        <span>{{ item }}</span>
+        }
       </div>
-
+      <div class="infos">
+        @for (item of property?.dets_outros; track $index) {
+        <span>{{ item }}</span>
+        }
+      </div>
     </div>
-  </section>
+  </div>
+  <div class="details-side">
+    <div class="price-box-desktop">
+      <p>Preço para:</p>
+      <span class="category">
+        {{ property?.categoria }}
+      </span>
+      <p class="value">
+        {{ property?.preco | currency : "BRL" : "symbol-narrow" : "1.0-0" }}
+      </p>
 
-  <app-action-01 />
-  <app-subscribe />
+      <button (click)="openLeadForm()" mat-button>Agendar visita</button>
+    </div>
+
+    <div class="complementations-box-desktop">
+      <p class="label">Localização</p>
+      <div class="location">
+        <h4>{{ property?.end_bairro }}</h4>
+        <h5>{{ property?.end_cidade }}/{{ property?.end_uf }}</h5>
+      </div>
+
+      <p class="label">Contém</p>
+      <div class="infos">
+        @for (item of property?.dets_imovel; track $index) {
+        <span>{{ item }}</span>
+        } @for (item of property?.dets_area_comum; track $index) {
+        <span>{{ item }}</span>
+        }
+      </div>
+    </div>
+  </div>
+</section>
+<app-action-social />
+<app-action-01 />
+<app-subscribe />
 
 }
