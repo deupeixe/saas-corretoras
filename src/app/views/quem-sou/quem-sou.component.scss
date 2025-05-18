@@ -4,7 +4,11 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  // padding: 20px;
+  p{
+    font-weight: 400;
+    // line-height: 1.5;
+    // color: #203130
+  }
 
   section{
     padding: 70px;
@@ -24,7 +28,7 @@
     h3{
       font-size: 30px;
       color: var(--color-1);
-      font-weight: 200;
+      font-weight: 300;
     }
 
     ul{

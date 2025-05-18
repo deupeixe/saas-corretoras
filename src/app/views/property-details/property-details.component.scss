@@ -27,6 +27,7 @@
       padding: 30px;
       .title{
         font-weight: 700;
+        color: var(--color-3);
       }
       .price-box-mobile, .complementations-box-mobile{
         display: none;
@@ -73,7 +74,7 @@
 
     .label{
       color: #999898;
-      font-weight: 100;
+      font-weight: 300;
     }
 
     .location{
@@ -119,9 +120,6 @@
     width: 100%;
     box-sizing: border-box;
   }
-
-
-
 }
 
 @media (max-width: 912px){
@@ -178,7 +176,7 @@
 
           .label{
             color: #999898;
-            font-weight: 100;
+            font-weight: 300;
           }
 
           .location{
