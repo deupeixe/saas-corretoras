@@ -55,7 +55,6 @@ export class PropertyDetailsComponent {
     this.property = this.propertyStore.select.one(slug)();
     this.utils.setTitle(`Telma Monteiro - ${slug}`);
     this.utils.updateMeta(EMeta.KEY_DEFAULT, slug);
-    console.log(this.property)
   }
 
   openLeadForm(){

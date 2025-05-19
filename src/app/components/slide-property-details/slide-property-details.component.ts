@@ -43,7 +43,6 @@ export class SlidePropertyDetailsComponent implements OnInit {
   ngOnInit(): void {
     if(isPlatformBrowser(this.platformId)){
       this.pageWidth = window.innerWidth;
-      console.log(this.pageWidth)
     }
   }
 

@@ -57,12 +57,8 @@ export class AdminLeadEditorComponent implements OnInit {
     if(this.data?.lead){
       this.form.patchValue({...this.data?.lead});
       if(this.data?.lead?.historico?.length){
-
-        console.log(this.data?.lead?.historico)
-
         for (let index = 0; index < this.data?.lead?.historico.length; index++) {
           const {data, horario, observacao} = this.data?.lead?.historico[index];
-          console.log(data, horario, observacao)
           this.addCtrl(data, horario, observacao)
         }
 
@@ -71,7 +67,6 @@ export class AdminLeadEditorComponent implements OnInit {
   }
 
   async save() {
-    console.log(this.form.invalid);
     if (
       this.form.invalid ||
       (!this.form.value.fone && !this.form.value.email)
@@ -95,10 +90,6 @@ export class AdminLeadEditorComponent implements OnInit {
       horario,
       observacao
     });
-
-    console.log(this.historicoCtrl.value)
-
-    console.log(group.value)
     this.historicoCtrl.push(group)
 
   }

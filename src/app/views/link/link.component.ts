@@ -4,12 +4,14 @@ import { UtilsService } from '../../services/utils.service';
 import { MatButtonModule } from '@angular/material/button';
 import { faPhone, faEnvelope, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-link',
   imports: [
     MatButtonModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    RouterLink
   ],
   templateUrl: './link.component.html',
   styleUrl: './link.component.scss'

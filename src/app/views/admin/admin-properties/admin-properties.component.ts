@@ -66,7 +66,6 @@ export class AdminPropertiesComponent {
     setTimeout(() => {
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
-      console.log(items);
     }, 1000);
   }
 
@@ -86,7 +85,6 @@ export class AdminPropertiesComponent {
     const res = confirm('Deletar item ?');
     if(!res){return}
     this.propertyStore.actionRemove(id)
-    console.log(res)
   }
 
 

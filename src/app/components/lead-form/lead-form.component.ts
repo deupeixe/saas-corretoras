@@ -85,7 +85,6 @@ export class LeadFormComponent implements OnInit {
   }
 
   async save() {
-    console.log(this.form.invalid);
     if (
       this.form.invalid ||
       (!this.form.value.fone && !this.form.value.email)

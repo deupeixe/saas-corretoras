@@ -50,9 +50,6 @@ export class FullscreenMediaComponent implements AfterViewInit {
 
   getCurrentSlideIndex() {
     const swiperInstance: Swiper | undefined = this.swiper?.swiperRef;
-    if (swiperInstance) {
-      console.log('Slide atual:', swiperInstance.activeIndex);
-    }
   }
 
 

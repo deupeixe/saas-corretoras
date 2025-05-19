@@ -87,10 +87,8 @@ export class GridComponent implements OnInit, OnChanges{
     this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(''),
       map(value => {
-        console.log(value)
         return this._filter(value || '');
-
-      } ),
+      }),
     );
   }
 
@@ -141,8 +139,6 @@ export class GridComponent implements OnInit, OnChanges{
       type: 'ambos'
 
     })
-
-    console.log(this.form.value)
   }
 
 

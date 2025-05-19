@@ -11,7 +11,7 @@ export const environment = {
   },
   whatsapp: {
     text: 'whatsapp',
-    link: 'https://api.whatsapp.com/send?phone=55989820170&text=Estou%20entrando%20em%20contato%20atrav%C3%A9s%20do%20site%20telmamonteiro.com.br%20e%20gostaria%20de%20solicitar%20atendimento.',
+    link: 'https://api.whatsapp.com/send?phone=5598982017027&text=Estou%20entrando%20em%20contato%20atrav%C3%A9s%20do%20site%20telmamonteiro.com.br%20e%20gostaria%20de%20solicitar%20atendimento.',
   },
   instagram: {
     text: 'Instagram',
@@ -34,7 +34,7 @@ export const environment = {
     link: 'mailto:contato@telmamonteiro.com.br'
   },
   address: {
-    text: 'Rua Ceará lote D casa 01 Chácara Brasil Turu - São Luís / MA ',
-    link: 'https://maps.app.goo.gl/LpeYx1212x3YXCYq6'
+    text: 'R. Ceará lote D casa 01 Chácara Brasil Turu - São Luís / MA ',
+    link: 'https://maps.app.goo.gl/xxu73TFBqRMBvwwc6'
   }
 };

@@ -6,6 +6,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { register } from 'swiper/element/bundle';
 import { filter } from 'rxjs';
 import { UtilsService } from './services/utils.service';
+import { ViewportScroller } from '@angular/common';
 
 register();
 @Component({
@@ -24,6 +25,7 @@ export class AppComponent {
   propertyStore = inject(PropertyStoreService);
   readonly router = inject(Router);
   readonly utils = inject(UtilsService);
+  readonly viewportScroller = inject(ViewportScroller);
 
   constructor(){
     this.propertyStore.actionLoadAll();
@@ -33,7 +35,9 @@ export class AppComponent {
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
-        this.utils.setLog('open_page', {origem: event.urlAfterRedirects})
+        this.utils.setLog('open_page', {origem: event.urlAfterRedirects});
+        this.viewportScroller.scrollToPosition([0, 0]);
+
       });
   }
 }

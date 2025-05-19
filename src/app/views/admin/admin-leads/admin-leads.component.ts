@@ -59,7 +59,6 @@ export class AdminLeadsComponent {
     setTimeout(() => {
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
-      console.log(items);
     }, 1000);
   }
 
@@ -79,7 +78,6 @@ export class AdminLeadsComponent {
     const res = confirm('Deletar item ?');
     if(!res){return}
     this.leadStore.actionRemove(id)
-    console.log(res)
   }
 
 

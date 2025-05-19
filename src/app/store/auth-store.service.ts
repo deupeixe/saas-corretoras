@@ -19,7 +19,6 @@ export class AuthStoreService {
 
   constructor() {
     onAuthStateChanged(this.auth, user => {
-      console.log(user)
       this.#state.set(user)
     } );
   }
@@ -49,7 +48,6 @@ export class AuthStoreService {
   actionIsAuth(){
     return new Promise(resolve => {
       onAuthStateChanged(this.auth, user => {
-        console.log(user)
         this.#state.set(user);
         resolve(user)
       } );

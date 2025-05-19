@@ -66,7 +66,6 @@ export class ImoveisComponent {
 
   setTable() {
     const items = this.propertyStore.select.state();
-    console.log(items)
     this.dataSource.data = items;
     setTimeout(() => {
       this.dataSource.paginator = this.paginator;
