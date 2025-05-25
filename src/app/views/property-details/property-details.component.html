@@ -15,17 +15,30 @@
       <button (click)="openLeadForm()" mat-button>Agendar visita</button>
     </div>
     <div class="description" [innerHTML]="property?.descricao"></div>
+    @if(insta_post){
+    <div class="insta_post">
+      <iframe
+        [src]="insta_post"
+        width="325"
+        height="570"
+        frameborder="0"
+        scrolling="no"
+        allowtransparency="true"
+      >
+      </iframe>
+    </div>
+
+    }
 
     <div class="complementations-box-mobile">
       @if(property?.tour_virtual){
-        <div class="youtube-box">
-          <youtube-player
-            [videoId]="property?.tour_virtual | getIdYoutube"
-            width="250"
-            >
-          </youtube-player>
-
-        </div>
+      <div class="youtube-box">
+        <youtube-player
+          [videoId]="property?.tour_virtual | getIdYoutube"
+          width="250"
+        >
+        </youtube-player>
+      </div>
       }
       <p class="label">Localização</p>
       <div class="location">
@@ -62,14 +75,13 @@
     </div>
 
     @if(property?.tour_virtual){
-      <div class="youtube-box">
-        <youtube-player
-          [videoId]="property?.tour_virtual | getIdYoutube"
-          width="250"
-          >
-        </youtube-player>
-
-      </div>
+    <div class="youtube-box">
+      <youtube-player
+        [videoId]="property?.tour_virtual | getIdYoutube"
+        width="250"
+      >
+      </youtube-player>
+    </div>
     }
 
     <div class="complementations-box-desktop">

@@ -1,0 +1,33 @@
+<div #swiperContainer class="swiper">
+  <div class="swiper-wrapper"></div>
+  <!-- Pagination -->
+  <div class="swiper-pagination"></div>
+</div>
+<!-- <swiper-container
+#swiperRef
+[pagination]="insta_posts.length > 1"
+[navigation]="false"
+[centeredSlides]="true"
+[spaceBetween]="20"
+[breakpoints]="{
+  '320': { slidesPerView: 1 },
+  '640': { slidesPerView: 2 },
+  '1024': { slidesPerView: 5 }
+}"
+>
+
+@for (item of insta_posts; track $index) {
+<swiper-slide>
+  <iframe
+  [src]="item"
+  width="400"
+  height="560"
+  frameborder="0"
+  scrolling="no"
+  allowtransparency="true"
+>
+</iframe>
+
+</swiper-slide>
+}
+</swiper-container> -->

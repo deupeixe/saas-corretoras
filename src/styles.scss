@@ -167,5 +167,19 @@ button{
 }
 
 
+@media (max-width: 768px){
+  :root{
+    @include mat.button-toggle-overrides((
+      label-text-size: 10px,
+      height:30px
+    ));
+  }
+  app-lead-form{
+    @include mat.form-field-overrides((
+      container-height: 40px,
+      filled-label-text-size: 12px
+    ));
 
+  }
+}
 

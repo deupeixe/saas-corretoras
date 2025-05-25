@@ -73,3 +73,76 @@ section{
 
   }
 }
+
+
+@media (max-width: 560px){
+  section{
+    padding: 5px 10px !important;
+    border: 1px solid var(--color-1);
+    position: relative;
+    max-height: 99dvh;
+    font-size: 14px;
+    h4{
+      color: var(--color-2);
+      font-size: 15px;
+    }
+    .btn-close{
+      position: absolute;
+      top: 3px;
+      right: 3px;
+      width: 30px;
+      background-color: var(--color-l1);
+      border-radius: 1px;
+    }
+
+    form{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      // padding: 20px;
+      mat-form-field{
+        width: 100%;
+      }
+
+      .contacts{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: center;
+        mat-form-field{
+          min-width: 200px;
+          flex: 1;
+        }
+        gap: 10px;
+        span{
+          width: 50px;
+          text-align: center;
+          margin-bottom: 10px;
+        }
+      }
+      .opts{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: start;
+        gap: 10px;
+      }
+
+      .btn-save-box{
+        display: flex;
+        justify-content: center;
+
+        .btn-save{
+          margin: 20px;
+          border-radius: 5px;
+          width: 300px;
+          background-color: var(--color-2);
+          color: var(--color-l1);
+        }
+
+      }
+
+
+    }
+  }
+
+}

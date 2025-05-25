@@ -19,7 +19,8 @@ export class PropertyStoreService {
   select = {
     state: computed(() => this.#state()),
     loading: computed(() => this.#loading()),
-    one: (url:string) =>  this.#extractOne(url)
+    one: (url:string) =>  this.#extractOne(url),
+    instaPosts: computed(() => this.#extractInstaPosts())
   }
 
 
@@ -125,6 +126,10 @@ export class PropertyStoreService {
 
   #extractOne(slug: string){
     return computed(() => this.#state().find((elem) => elem?.url.includes(slug) || elem?.codigo.includes(slug) || elem?.id.includes(slug)))
+  }
+
+  #extractInstaPosts(){
+    return computed(() => this.#state().filter((elem) => elem?.insta_post).map(({insta_post}) => insta_post) )
   }
 
   #setInState(res: IResponse, replaceAll = false) {

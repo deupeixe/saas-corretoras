@@ -15,7 +15,7 @@ import { EMeta } from '../../enums/meta';
     GridComponent,
     Action01Component,
     SubscribeComponent,
-    ActionSocialComponent
+    ActionSocialComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'

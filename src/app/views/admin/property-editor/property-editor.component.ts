@@ -74,6 +74,7 @@ export class PropertyEditorComponent implements OnInit {
     dets_area_comum: [''],
     dets_proximidades: [''],
     dets_outros: [''],
+    insta_post: [''],
     thumb: [''],
     fotos: [[]],
     tour_virtual: [''],

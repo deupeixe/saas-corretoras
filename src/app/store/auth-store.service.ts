@@ -37,7 +37,7 @@ export class AuthStoreService {
         current?.delete()
 
       }).catch(err => {
-        console.log(err)
+        console.error(err)
       });
   }
 
